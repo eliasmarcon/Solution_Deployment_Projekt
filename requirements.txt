@@ -1,0 +1,9 @@
+uvicorn
+fastapi
+pydantic
+bs4
+dash
+plotly
+pandas
+requests
+dash_bootstrap_components
