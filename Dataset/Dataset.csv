@@ -1,0 +1,418 @@
+ID,organisation,records_lost,date,year,month,sector,sector_1,sector_2,method,data_sensitivity,data_sensitivity_text,source_name
+418,Plex,15000000,Aug 2022,2022,August,web,web,No other sector,hacked,1,Just email address/Online information,Ars technica
+419,Twitter,5400000,Dec 2021,2021,December,web,web,No other sector,hacked,2,SSN/Personal details,Bleeping Computer
+420,Shanghai Police,500000000,Jul 2022,2022,July,financial,financial,No other sector,hacked,5,Full details,The Register
+421,"City of Amagasaki, Japan",500000,Jun 2022,2022,June,government,government,No other sector,oops!,3,Credit card information,BBC
+417,Dubai Real Estate Leak,800000,May 2022,2022,May,financial,financial,No other sector,inside job,1,Just email address/Online information,E24
+416,Heroku,50000,Apr 2022,2022,April,tech,tech,No other sector,hacked,2,SSN/Personal details,Bleeping Computer
+415,Mailchimp,106586,Apr 2022,2022,April,tech,tech,No other sector,hacked,1,Just email address/Online information,Bleeping Computer
+414,PayHere,1580249,Mar 2022,2022,March,financial,financial,No other sector,hacked,3,Credit card information,Pay Here
+413,CDEK,18218203,Mar 2022,2022,March,retail,retail,No other sector,hacked,3,Credit card information,Have I Been Pwned
+412,Washington State Dpt of Licensing,257000,Feb 2022,2022,February,government,government,No other sector,hacked,3,Credit card information,Seattle Times
+411,Red Cross,500000,Jan 2022,2022,January,NGO,NGO,No other sector,hacked,4,Health & other personal records,Arsetechnia
+410,Open Subtitles,100000,Jan 2022,2022,January,web,web,No other sector,hacked,1,Just email address/Online information,Open Subtitles
+409,FlexBooker,3700000,Jan 2022,2022,January,web,web,No other sector,hacked,3,Credit card information,Bleeping Computer
+408,LINE Pay,133000,Dec 2021,2021,December,financial,financial,No other sector,poor security,2,SSN/Personal details,The Register
+407,Robinhood,5000937,Nov 2021,2021,November,financial,financial,No other sector,hacked,2,SSN/Personal details,Tech Crunch
+406,GoDaddy,1200000,Nov 2021,2021,November,web,web,No other sector,hacked,1,Just email address/Online information,SEC
+405,Travelio,471376,Nov 2021,2021,November,misc,misc,No other sector,hacked,2,SSN/Personal details,HaveIBeenPwned
+404,Acer,3000000,Oct 2021,2021,October,tech,tech,No other sector,hacked,1,Just email address/Online information,Hot Hardware
+403,Brewdog,200000,Oct 2021,2021,October,retail,retail,No other sector,poor security,1,Just email address/Online information,Tech Radar
+401,Nvidia,100000,Mar 2021,2021,March,tech,tech,No other sector,hacked,2,SSN/Personal details,CNN Business
+399,Okta,100000,Jan 2021,2021,January,tech,tech,No other sector,hacked,1,Just email address/Online information,The Verge
+402,Experian SA,24000000, Jul 2020,2020,July,web,web,No other sector,oops!,3,Credit card information,Uni of Hawaii
+398,Royal Enfield,420873, Jan 2020,2020,January,transport,transport,No other sector,poor security,3,Credit card information,The Quint
+397,Avvo,4101101,Dec 2019,2019,December,legal,legal,No other sector,hacked,1,Just email address/Online information,HaveIBeenPwned
+396,Aimware,305470,May 2019,2019,May,gaming,gaming,No other sector,hacked,3,Credit card information,HaveIBeenPwned
+395,Twitch,10000000,Oct 2021,2021,October,gaming,gaming,No other sector,hacked,4,Health & other personal records,BBC
+394,Syniverse,500000000,Sep 2021,2021,September,telecoms,telecoms,No other sector,hacked,4,Health & other personal records,Vice
+393,Pandora Papers,11900000,Oct 2021,2021,October,government,government,No other sector,hacked,4,Health & other personal records,Guardian
+392,Neiman Marcus,4600000,Sep 2021,2021,September,retail,retail,No other sector,hacked,3,Credit card information,Ars Technica
+391,Epik,15000000,Sep 2021,2021,September,retail,retail,No other sector,hacked,5,Full details,Ars Technica
+390,Thailand visitors,100000000,Sep 2021,2021,September,government,government,No other sector,poor security,2,SSN/Personal details,South China Morning Post
+389,T-Mobile ,76000000,Aug 2021,2021,August,telecoms,telecoms,No other sector,hacked,3,Credit card information,Krebson Security
+388,Contact tracing data,38000000,Aug 2021,2021,August,telecoms,telecoms,No other sector,hacked,3,Credit card information,Wired
+387,Estonian gov,280000,Jul 2021,2021,July,government,government,No other sector,hacked,4,Health & other personal records,News ERR
+386,Guntrader,111000,Jul 2021,2021,July,retail,retail,No other sector,hacked,2,SSN/Personal details,The Register
+385,Linkedin,700000000,Jul 2021,2021,July,web,web,No other sector,hacked,1,Just email address/Online information,9 to 5 mac
+384,VW,3300000,Jun 2021,2021,June,transport,transport,No other sector,hacked,2,SSN/Personal details,Reuters
+383,MacDonalds,10000000,Jun 2021,2021,June,retail,retail,No other sector,hacked,2,SSN/Personal details,Wall St Journal
+382,Air India,4500000,May 2021,2021,May,transport,transport,No other sector,hacked,2,SSN/Personal details,Indian Express
+381,Omiai dating app,1710000,May 2021,2021,May,app,app,No other sector,hacked,2,SSN/Personal details,Japan Times
+380,Amazon Reviews,13124962,May 2021,2021,May,web,web,No other sector,poor security,2,SSN/Personal details,Safety Detectives
+379,Peloton,3000000,May 2021,2021,May,tech,tech,No other sector,poor security,2,SSN/Personal details,Ars Technica
+378,Digital Ocean,10000000,Apr 2021,2021,April,tech,tech,No other sector,poor security,0,Unknown,Tech Crunch
+377,Park Mobile,21000000,Apr 2021,2021,April,transport,transport,No other sector,hacked,2,SSN/Personal details,Krebson Security
+376,Ubiquiti,16000000,Feb 2021,2021,February,tech,tech,No other sector,hacked,2,SSN/Personal details,ZDNet
+375,Meet Mindful,2240000,Feb 2021,2021,February,tech,tech,No other sector,hacked,4,Health & other personal records,ZDnet
+374,Experian Brazil,220000000,Feb 2021,2021,February,finance,finance,No other sector,hacked,2,SSN/Personal details,ZDNet
+373,Gab,4000000, Mar 2021,2021,March,tech,tech,No other sector,hacked,3,Credit card information,Wired
+372,Star Alliance,16000000, Mar 2021,2021,March,transport,transport,No other sector,hacked,1,Just email address/Online information,The Guardian
+371,Facebook,533000000, Mar 2021,2021,March,tech,tech,No other sector,hacked,1,Just email address/Online information,Business Insider
+370,Ledger,270000, Dec 2020,2020,December,finance,finance,No other sector,hacked,2,SSN/Personal details,Bleeping Computer
+369,T-mobile,200000, Dec 2020,2020,December,telecoms,telecoms,No other sector,hacked,1,Just email address/Online information,Bleeping Computer
+368,The Hospital Group,1000000, Dec 2020,2020,December,health,health,No other sector,hacked,4,Health & other personal records,BBC
+367,SolarWinds,50000000, Dec 2020,2020,December,app,app,No other sector,hacked,3,Credit card information,New York Times
+366,Ho Mobile,2500000, Dec 2020,2020,December,telecoms,telecoms,No other sector,hacked,2,SSN/Personal details,ZD Net
+365,Spotify,500000, Dec 2020,2020,December,app,app,No other sector,oops!,1,Just email address/Online information,Tech Crunch
+364,Drizly,2400000, Sep 2020,2020,September,app,app,No other sector,hacked,2,SSN/Personal details,Tech Crunch
+363,GEDmatch,1400000, Sep 2020,2020,September,"misc, health",misc, health,hacked,5,Full details,New York Times
+362,Call of Duty / Activision,500000, Sep 2020,2020,September,gaming,gaming,No other sector,hacked,1,Just email address/Online information,Forbes
+361,Zhenhua,2400000, Sep 2020,2020,September,misc,misc,No other sector,oops!,1,Just email address/Online information,The Guardian
+360,Cense AI,2500000, Aug 2020,2020,August,"tech, health",tech, health,poor security,4,Health & other personal records,PC Mag
+359,Nintendo,300000, Apr 2020,2020,April,gaming,gaming,No other sector,hacked,3,Credit card information,Tech Crunch
+358,Pakistani mobile operators,115000000, Apr 2020,2020,April,telecoms,telecoms,No other sector,hacked,2,SSN/Personal details,ZDNet
+357,US Marshals Service,387000, May 2020,2020,May,government,government,No other sector,hacked,2,SSN/Personal details,NextGov
+356,db8151dd,22000000, May 2020,2020,May,web,web,No other sector,hacked,2,SSN/Personal details,9 to 5 Mac
+355,EasyJet,9000000, May 2020,2020,May,transport,transport,No other sector,hacked,3,Credit card information,BBC
+354,Microsoft,250000000, Jan 2020,2020,January,web,web,No other sector,poor security,1,Just email address/Online information,Forbes
+353,Dutch Government,6900000, Mar 2020,2020,March,government,government,No other sector,lost device,4,Health & other personal records,ZDNet
+352,Virgin Media,900000, Mar 2020,2020,March,retail,retail,No other sector,poor security,1,Just email address/Online information,BBC 
+351,Boots Advantage Card,150000, Mar 2020,2020,March,retail,retail,No other sector,hacked,1,Just email address/Online information,Which
+350,Tesco Clubcard,600000, Mar 2020,2020,March,retail,retail,No other sector,hacked,1,Just email address/Online information,Tech Radar
+349,Marriott Hotels,5200000, Mar 2020,2020,March,retail,retail,No other sector,inside job,2,SSN/Personal details,Marriott
+348,Zoom,500000, Apr 2020,2020,April,app,app,No other sector,hacked,1,Just email address/Online information,We Live Security
+347,Israeli government,6500000, Feb 2020,2020,February,government,government,No other sector,poor security,2,SSN/Personal details,NYTimes
+346,MGM Hotels,10600000, Feb 2020,2020,February,retail,retail,No other sector,hacked,2,SSN/Personal details,ZDNet
+345,Buchbinder Car Rentals,5000000, Jan 2020,2020,January,transport,transport,No other sector,poor security,2,SSN/Personal details,Teller Report
+344,Wawa,30000000, Dec 2019,2019,December,retail,retail,No other sector,hacked,3,Credit card information,Krebs on Security
+343,Desjardins Group,4200000, Jun 2019,2019,June,finance,finance,No other sector,inside job,2,SSN/Personal details,CBC
+342,US Customs and Border Protection,100000, Jun 2019,2019,June,government,government,No other sector,hacked,2,SSN/Personal details,Washington Post
+341,Quest Diagnostics,20000000, Jun 2019,2019,June,health,health,No other sector,poor security,4,Health & other personal records,ZDNet
+340,Australian National University,200000, Jun 2019,2019,June,academic,academic,No other sector,hacked,4,Health & other personal records,Guardian
+339,Canva,139000000, May 2019,2019,May,web,web,No other sector,hacked,2,SSN/Personal details,ZDNet
+337,Chtrbox,49000000, May 2019,2019,May,misc,misc,No other sector,poor security,1,Just email address/Online information,Techcrunch
+336,WiFi Finder,2000000, Apr 2019,2019,April,app,app,No other sector,poor security,1,Just email address/Online information,Techcrunch
+335,Toyota,3100000, Apr 2019,2019,April,transport,transport,No other sector,hacked,2,SSN/Personal details,Bleeping Computer
+334,Unknown,1800000, Mar 2019,2019,March,web,web,No other sector,poor security,4,Health & other personal records,The Guardian
+333,Vårdguiden,2700000, Feb 2019,2019,February,health,health,No other sector,poor security,5,Full details,ComputerSweden
+332,Dubsmash,162000000, Feb 2019,2019,February,web,web,No other sector,hacked,1,Just email address/Online information,The Register
+331,ShareThis,41000000, Feb 2019,2019,February,web,web,No other sector,hacked,1,Just email address/Online information,The Register
+330,HauteLook,28000000, Feb 2019,2019,February,retail,retail,No other sector,hacked,1,Just email address/Online information,The Register
+329,Animoto,25000000, Feb 2019,2019,February,web,web,No other sector,hacked,1,Just email address/Online information,The Register
+328,EyeEm,22000000, Feb 2019,2019,February,web,web,No other sector,hacked,1,Just email address/Online information,The Register
+327,8fit,20000000, Feb 2019,2019,February,web,web,No other sector,hacked,1,Just email address/Online information,The Register
+326,Whitepages,18000000, Feb 2019,2019,February,web,web,No other sector,hacked,1,Just email address/Online information,The Register
+325,Fotolog,16000000, Feb 2019,2019,February,web,web,No other sector,hacked,1,Just email address/Online information,The Register
+324,Armor Games,11000000, Feb 2019,2019,February,gaming,gaming,No other sector,hacked,1,Just email address/Online information,The Register
+323,BookMate,8000000, Feb 2019,2019,February,web,web,No other sector,hacked,1,Just email address/Online information,The Register
+322,CoffeeMeetsBagel,6000000, Feb 2019,2019,February,web,web,No other sector,hacked,1,Just email address/Online information,The Register
+321,Artsy,1000000, Feb 2019,2019,February,web,web,No other sector,hacked,1,Just email address/Online information,The Register
+320,DataCamp,700000, Feb 2019,2019,February,web,web,No other sector,hacked,1,Just email address/Online information,The Register
+319,Ixigo,18000000, Feb 2019,2019,February,transport,transport,No other sector,poor security,1,Just email address/Online information,Techcrunch
+318,YouNow,40000000, Feb 2019,2019,February,web,web,No other sector,hacked,1,Just email address/Online information,Techcrunch
+317,Houzz,57000000, Feb 2019,2019,February,retail,retail,No other sector,hacked,2,SSN/Personal details,Techcrunch
+316,Ge.tt,1800000, Feb 2019,2019,February,web,web,No other sector,hacked,1,Just email address/Online information,Techcrunch
+315,Coinmama,450000, Feb 2019,2019,February,finance,finance,No other sector,hacked,1,Just email address/Online information,Techcrunch
+314,Roll20,4000000, Feb 2019,2019,February,gaming,gaming,No other sector,hacked,1,Just email address/Online information,Techcrunch
+313,Stronghold Kingdoms,5000000, Feb 2019,2019,February,gaming,gaming,No other sector,hacked,1,Just email address/Online information,Techcrunch
+312,Petflow,1000000, Feb 2019,2019,February,retail,retail,No other sector,poor security,1,Just email address/Online information,Techcrunch
+311,500px,14800000, Feb 2019,2019,February,web,web,No other sector,hacked,2,SSN/Personal details,PetaPixel
+310,Blur,2400000, Jan 2019,2019,January,tech,tech,No other sector,oops!,1,Just email address/Online information,ZDNet
+309,Blank Media Games,7600000, Jan 2019,2019,January,gaming,gaming,No other sector,hacked,1,Just email address/Online information,ZDNet
+308,Indian citizens,275265298, May 2019,2019,May,web,web,No other sector,poor security,2,SSN/Personal details,Bleeping Computer
+307,Bulgarian National Revenue Agency,5000000, Jul 2019,2019,July,government,government,No other sector,hacked,2,SSN/Personal details,ZDNet
+306,Capital One,100000000, Jul 2019,2019,July,finance,finance,No other sector,hacked,3,Credit card information,Forbes
+305,Suprema,27800000, Aug 2019,2019,August,tech,tech,No other sector,poor security,5,Full details,Guardian
+304,Facebook,419000000, Sep 2019,2019,September,web,web,No other sector,poor security,2,SSN/Personal details,Fast Company
+303,DoorDash,4900000, Sep 2019,2019,September,transport,transport,No other sector,hacked,2,SSN/Personal details,Techcrunch
+302,BriansClub,26000000, Oct 2019,2019,October,web,web,No other sector,hacked,3,Credit card information,Ars Technica
+300,OxyData,380000000, Nov 2019,2019,November,tech,tech,No other sector,poor security,2,SSN/Personal details,Dataviper
+299,Click2Gov,300000, Dec 2018,2018,December,finance,finance,No other sector,hacked,3,Credit card information,Fortune
+298,SingHealth,1500000, Jul 2018,2018,July,health,health,No other sector,hacked,4,Health & other personal records,Straits Times
+297,GovPayNow.com,14000000, Sep 2018,2018,September,finance,finance,No other sector,poor security,2,SSN/Personal details,Krebs on Security
+296,Cathay Pacific Airways,94000000, Oct 2018,2018,October,transport,transport,No other sector,hacked,3,Credit card information,ABC News
+295,Chinese resume leak,202000000, Dec 2018,2018,December,web,web,No other sector,poor security,2,SSN/Personal details,HackenProof
+294,Google+,52500000, Dec 2018,2018,December,web,web,No other sector,poor security,2,SSN/Personal details,The Verge
+293,Quora,100000000, Dec 2018,2018,December,web,web,No other sector,hacked,1,Just email address/Online information,NY Times
+292,Marriott International,383000000, Nov 2018,2018,November,retail,retail,No other sector,hacked,3,Credit card information,"NY Times, CNET"
+291,NMBS,700000, Dec 2018,2018,December,transport,transport,No other sector,oops!,2,SSN/Personal details,Flanders Today
+290,Facebook,50000000, Mar 2018,2018,March,web,web,No other sector,hacked,1,Just email address/Online information,Guardian
+289,Panerabread,37000000, Apr 2018,2018,April,retail,retail,No other sector,poor security,2,SSN/Personal details,"Krebsonsecurity, Medium"
+288,Dixons Carphone,10000000, Jun 2018,2018,June,telecoms,telecoms,No other sector,hacked,1,Just email address/Online information,BBC
+287,MyHeritage,92283889, Jun 2018,2018,June,web,web,No other sector,hacked,1,Just email address/Online information,Bloomberg
+286,Saks and Lord & Taylor,5000000, Apr 2018,2018,April,retail,retail,No other sector,hacked,3,Credit card information,NYTimes
+285,Careem,14000000, Apr 2018,2018,April,app,app,No other sector,hacked,2,SSN/Personal details,Khaleej Times
+284,Texas voter records,14800000, Aug 2018,2018,August,web,web,No other sector,poor security,2,SSN/Personal details,TechCrunch
+283,British Airways,380000, Sep 2018,2018,September,transport,transport,No other sector,hacked,4,Health & other personal records,Guardian
+282,T-Mobile,2000000, Aug 2018,2018,August,telecoms,telecoms,No other sector,hacked,1,Just email address/Online information,Motherboard
+281,MyFitnessPal,150000000, Mar 2018,2018,March,app,app,No other sector,hacked,1,Just email address/Online information,Guardian
+280,Helse Sør-Øst RHF,3000000, Feb 2018,2018,February,health,health,No other sector,hacked,4,Health & other personal records,It Governance
+279,Nametests,120000000, Jun 2018,2018,June,app,app,No other sector,poor security,1,Just email address/Online information,Medium
+278,Ticketmaster,40000, Jun 2018,2018,June,web,web,No other sector,hacked,3,Credit card information,BBC News
+277,Firebase,100000000, Jun 2018,2018,June,app,app,No other sector,poor security,5,Full details,Bleeping Computer
+276,Aadhaar,550000000, Mar 2018,2018,March,government,government,No other sector,poor security,4,Health & other personal records,ZDNet
+275,Grindr,3000000, Mar 2018,2018,March,app,app,No other sector,poor security,3,Credit card information,NBC News
+274,Orbitz,880000, Mar 2018,2018,March,web,web,No other sector,hacked,3,Credit card information,US News
+273,MBM Company,1300000, Mar 2018,2018,March,retail,retail,No other sector,poor security,4,Health & other personal records,NextWeb
+272,LocalBlox,48000000, May 2018,2018,May,web,web,No other sector,poor security,2,SSN/Personal details,UpGuard
+271,Twitter,330000000, May 2018,2018,May,tech,tech,No other sector,poor security,1,Just email address/Online information,Reuters
+270,ViewFines,934000, May 2018,2018,May,transport,transport,No other sector,oops!,4,Health & other personal records,iAfrikan
+269,TicketFly,27000000, May 2018,2018,May,web,web,No other sector,hacked,2,SSN/Personal details,The Verge
+268,Amazon,5000000, Nov 2018,2018,November,retail,retail,No other sector,oops!,1,Just email address/Online information,Guardian
+267,Urban Massage,309000, Nov 2018,2018,November,app,app,No other sector,poor security,2,SSN/Personal details,Tech Crunch
+266,Dell ,100000, Nov 2018,2018,November,tech,tech,No other sector,hacked,1,Just email address/Online information,ZD Net
+265,High Tail Hall,411000, Nov 2018,2018,November,web,web,No other sector,hacked,2,SSN/Personal details,Daily Mail
+264,SKY Brasil,32000000, Nov 2018,2018,November,telecoms,telecoms,No other sector,poor security,1,Just email address/Online information,Bleeping Computer
+263,Vision Direct,16300, Nov 2018,2018,November,retail,retail,No other sector,hacked,4,Health & other personal records,BBC
+262,Medicare & Medicaid,93689, Nov 2018,2018,November,health,health,No other sector,hacked,2,SSN/Personal details,HCA News
+261,Facebook,29000000, Oct 2018,2018,October,web,web,No other sector,hacked,2,SSN/Personal details,"Business Insider, Facebook"
+260,Newegg,45000000, Sep 2018,2018,September,retail,retail,No other sector,hacked,3,Credit card information,TechCrunch
+259,Mount Olympus,1100, Mar 2016,2016,March,finance,finance,No other sector,inside job,5,Full details,Housing Wire
+258,Apollo,200000000, May 2018,2018,May,tech,tech,No other sector,poor security,1,Just email address/Online information,Wired
+257,Disqus,17500000, Dec 2017,2017,December,web,web,No other sector,hacked,4,Health & other personal records,ZD Net
+256,RootsWeb,300000, Dec 2017,2017,December,web,web,No other sector,poor security,4,Health & other personal records,Threat Post
+255,Yahoo,32000000, Mar 2017,2017,March,web,web,No other sector,hacked,4,Health & other personal records,CNet
+254,Uber,57000000, Nov 2017,2017,November,app,app,No other sector,hacked,1,Just email address/Online information,Bloomberg
+253,Wonga,270000, Apr 2017,2017,April,finance,finance,No other sector,hacked,4,Health & other personal records,The Guardian
+252,Snapchat,1700000, Apr 2017,2017,April,app,app,No other sector,hacked,1,Just email address/Online information,BGR
+251,Spambot,520000000, Aug 2017,2017,August,web,web,No other sector,poor security,4,Health & other personal records,The Guardian
+250,CEX,2000000, Aug 2017,2017,August,retail,retail,No other sector,oops!,3,Credit card information,PC Mag
+249,Al.type,31000000, Dec 2017,2017,December,app,app,No other sector,poor security,4,Health & other personal records,ZDNet
+248,Cellebrite,3000000, Jan 2017,2017,January,tech,tech,No other sector,hacked,2,SSN/Personal details,Vice
+247,Waterly,1000000, Jan 2017,2017,January,app,app,No other sector,poor security,3,Credit card information,Data Breaches
+246,Swedish Transport Agency,3000000, Jul 2017,2017,July,government,government,No other sector,poor security,5,Full details,The Local
+245,Hong Kong Registration & Electoral Office,3700000, Mar 2017,2017,March,government,government,No other sector,lost device,2,SSN/Personal details,SCMP
+244,River City Media,340000000, Mar 2017,2017,March,web,web,No other sector,oops!,2,SSN/Personal details,Guardian
+243,DaFont,700000, May 2017,2017,May,web,web,No other sector,hacked,4,Health & other personal records,ZD Net
+242,Bell,1900000, May 2017,2017,May,telecoms,telecoms,No other sector,hacked,1,Just email address/Online information,CBC
+241,Zomato,17000000, May 2017,2017,May,web,web,No other sector,hacked,4,Health & other personal records,HackRead
+240,Imgur,1700000, May 2017,2017,May,app,app,No other sector,hacked,4,Health & other personal records,Imgur
+239,TIO Networks,1600000, Dec 2017,2017,December,finance,finance,No other sector,hacked,4,Health & other personal records,Bleeping Computer
+238,Malaysian telcos & MVNOs,46200000, Oct 2017,2017,October,telecoms,telecoms,No other sector,hacked,4,Health & other personal records,LowYat
+237,Malaysian medical practitioners,81309, Oct 2017,2017,October,health,health,No other sector,hacked,4,Health & other personal records,Silicon
+236,Instagram,6000000, Sep 2017,2017,September,web,web,No other sector,hacked,1,Just email address/Online information,The Verge
+235,Viacom,3000000, Sep 2017,2017,September,web,web,No other sector,hacked,4,Health & other personal records,The Hacker News
+234,Equifax,143000000, Sep 2017,2017,September,finance,finance,No other sector,hacked,4,Health & other personal records,UK Gov
+233,SVR Tracking,540000, Sep 2017,2017,September,app,app,No other sector,poor security,4,Health & other personal records,The Hacker News
+232,LinkedIn,117000000, May 2016,2016,May,web,web,No other sector,hacked,1,Just email address/Online information,CNN
+231,Tumblr,65000000, May 2016,2016,May,web,web,No other sector,hacked,1,Just email address/Online information,Vice
+230,Yahoo,500000000, Sep 2016,2016,September,web,web,No other sector,hacked,2,SSN/Personal details,CNBC
+229,Mossack Fonseca,11500000, Apr 2016,2016,April,misc,misc,No other sector,hacked,5,Full details,PanamaPapers
+228,Philippines’ Commission on Elections,55000000, Apr 2016,2016,April,government,government,No other sector,hacked,5,Full details,Trend Micro
+227,Syrian government,274477, Apr 2016,2016,April,government,government,No other sector,hacked,1,Just email address/Online information,Softpedia
+226,Minecraft,7000000, Apr 2016,2016,April,gaming,gaming,No other sector,hacked,1,Just email address/Online information,BBC
+225,Turkish citizenship database,49611709, Apr 2016,2016,April,government,government,No other sector,hacked,2,SSN/Personal details,Business Insider
+224,Banner Health,3700000, Aug 2016,2016,August,health,health,No other sector,hacked,3,Credit card information,Healthcare Informatics
+223,Mail. ru,25000000, Aug 2016,2016,August,web,web,No other sector,hacked,2,SSN/Personal details,ZD Net
+222,PayAsUGym,300000, Dec 2016,2016,December,web,web,No other sector,hacked,1,Just email address/Online information,BBC News
+221,Lynda.com,9500000, Dec 2016,2016,December,web,web,No other sector,hacked,1,Just email address/Online information,Neowin
+220,Linux Ubuntu forums,2000000, Jul 2016,2016,July,web,web,No other sector,hacked,1,Just email address/Online information,ZDnet
+219,Wendy's,1025, Jul 2016,2016,July,retail,retail,No other sector,hacked,3,Credit card information,Forbes
+218,Clinton campaign,5000000, Jul 2016,2016,July,government,government,No other sector,hacked,2,SSN/Personal details,Reuters
+217,uTorrent ,35000, Jun 2016,2016,June,web,web,No other sector,hacked,1,Just email address/Online information,Torrent Freak
+216,World Check,2200000, Jun 2016,2016,June,misc,misc,No other sector,poor security,3,Credit card information,The Stack
+215,Mutuelle Generale de la Police,112000, Jun 2016,2016,June,health,health,No other sector,inside job,5,Full details,BBC News
+214,VK,171000000, Jun 2016,2016,June,web,web,No other sector,hacked,4,Health & other personal records,Motherboard
+213,KM.ru & Nival,1500000, Mar 2016,2016,March,web,web,No other sector,hacked,4,Health & other personal records,Motherboard
+212,Fling,40000000, May 2016,2016,May,web,web,No other sector,hacked,4,Health & other personal records,IBTimes
+211,MySpace,164000000, May 2016,2016,May,web,web,No other sector,hacked,1,Just email address/Online information,Vice
+210,Three,130000, Nov 2016,2016,November,telecoms,telecoms,No other sector,hacked,2,SSN/Personal details,Three
+209,Red Cross Blood Service,550000, Oct 2016,2016,October,health,health,No other sector,oops!,4,Health & other personal records,ABC News
+208,Telegram ,15000000, Aug 2016,2016,August,app,app,No other sector,hacked,1,Just email address/Online information,Venture Beat
+207,Dailymotion,85200000, Dec 2016,2016,December,web,web,No other sector,hacked,1,Just email address/Online information,ZDNet
+206,Weebly,43000000, Oct 2016,2016,October,web,web,No other sector,hacked,4,Health & other personal records,Tech Crunch
+205,Interpark,10000000, Jul 2016,2016,July,web,web,No other sector,hacked,2,SSN/Personal details,NY times
+204,Quest Diagnostics,34000, Dec 2016,2016,December,health,health,No other sector,hacked,4,Health & other personal records,Newsroom
+203,Friend Finder Network,412000000, Nov 2016,2016,November,web,web,No other sector,hacked,1,Just email address/Online information,ZDNet
+202,Brazzers,790724, Sep 2016,2016,September,web,web,No other sector,hacked,4,Health & other personal records,Vice
+201,ClixSense,6600000, Sep 2016,2016,September,web,web,No other sector,hacked,5,Full details,Digital trends
+200,Carefirst,1100000, May 2015,2015,May,health,health,No other sector,hacked,1,Just email address/Online information,Krebs on Security
+199,Twitch,10000000, Mar 2015,2015,March,health,health,No other sector,hacked,1,Just email address/Online information,Twitch
+198,Premera,11000000, Mar 2015,2015,March,health,health,No other sector,hacked,5,Full details,Computer Weekly
+197,Uber,50000, Feb 2015,2015,February,"tech, app",tech, app,poor security,1,Just email address/Online information,TechCrunch
+196,Deep Root Analytics,198000000, Dec 2015,2015,December,web,web,No other sector,poor security,2,SSN/Personal details,"Reuters, UpGuard"
+195,Kromtech,13000000, Dec 2015,2015,December,web,web,No other sector,hacked,1,Just email address/Online information,BBC
+194,Invest Bank,40000, Dec 2015,2015,December,finance,finance,No other sector,hacked,4,Health & other personal records,Daily Dot 
+193,Sanrio,3300000, Dec 2015,2015,December,web,web,No other sector,poor security,2,SSN/Personal details,CSO Online
+192,VTech,6400000, Dec 2015,2015,December,web,web,No other sector,hacked,5,Full details,The Guardian
+191,Hacking Team,500000, Jul 2015,2015,July,web,web,No other sector,hacked,5,Full details,The Guardian
+190,AshleyMadison.com,37000000, Jul 2015,2015,July,web,web,No other sector,hacked,1,Just email address/Online information,Krebs on Security
+189,US Office of Personnel Management (2nd Breach),21500000, Jul 2015,2015,July,government,government,No other sector,hacked,5,Full details,BBC News
+188,US Office of Personnel Management,4000000, Jun 2015,2015,June,government,government,No other sector,hacked,2,SSN/Personal details,Washington Post
+187,Australian Immigration Department,30, Mar 2015,2015,March,government,government,No other sector,oops!,4,Health & other personal records,The Guardian
+186,IRS,100000, May 2015,2015,May,government,government,No other sector,hacked,1,Just email address/Online information,CNN
+185,MSpy,400000, May 2015,2015,May,app,app,No other sector,hacked,2,SSN/Personal details,Krebs on Security
+184,Adult Friend Finder,3900000, May 2015,2015,May,web,web,No other sector,hacked,1,Just email address/Online information,Channel 4
+183,Securus Technologies,70000000, Nov 2015,2015,November,web,web,No other sector,hacked,5,Full details,The Intercept
+182,TalkTalk,157000, Nov 2015,2015,November,telecoms,telecoms,No other sector,hacked,2,SSN/Personal details,BBC News
+181,Experian / T-mobile,15000000, Oct 2015,2015,October,telecoms,telecoms,No other sector,hacked,3,Credit card information,Reuters
+180,Slack,500000, Mar 2015,2015,March,app,app,No other sector,hacked,1,Just email address/Online information,Tech Crunch
+179,CarPhone Warehouse,2400000, Aug 2015,2015,August,telecoms,telecoms,No other sector,hacked,3,Credit card information,The Guardian
+178,British Airways,10000, Mar 2015,2015,March,transport,transport,No other sector,hacked,1,Just email address/Online information,The Guardian
+177,Anthem ,80000000, Feb 2015,2015,February,health,health,No other sector,hacked,2,SSN/Personal details,NYTimes
+176,UCLA Health,4500000, May 2015,2015,May,health,health,No other sector,hacked,4,Health & other personal records,Health IT Security
+175,Neiman Marcus,1100000, Jan 2014,2014,January,retail,retail,No other sector,hacked,2,SSN/Personal details,NY Times
+174,AOL,2400000, Apr 2014,2014,April,web,web,No other sector,hacked,1,Just email address/Online information,NBC News
+173,Community Health Systems,4500000, Aug 2014,2014,August,health,health,No other sector,hacked,2,SSN/Personal details,CNN
+172,Privatization Agency of the Republic of Serbia,5190396, Dec 2014,2014,December,government,government,No other sector,oops!,2,SSN/Personal details,Poverenik
+171,Sony Pictures,10000000, Dec 2014,2014,December,misc,misc,No other sector,hacked,2,SSN/Personal details,Buzzfeed
+170,Indiana University,146000, Feb 2014,2014,February,academic,academic,No other sector,poor security,2,SSN/Personal details,Indiana University
+169,Ebay,145000000, May 2014,2014,May,web,web,No other sector,hacked,1,Just email address/Online information,Business Insider
+168,UPS,4000000, Aug 2014,2014,August,retail,retail,No other sector,hacked,3,Credit card information,Time
+167,European Central Bank,4000000, Jul 2014,2014,July,finance,finance,No other sector,hacked,1,Just email address/Online information,City am
+166,JP Morgan Chase,76000000, Oct 2014,2014,October,finance,finance,No other sector,hacked,3,Credit card information,Deal Book
+165,New York Taxis,52000, Jun 2014,2014,June,transport,transport,No other sector,poor security,1,Just email address/Online information,Medium
+164,HSBC Turkey,2700000, Nov 2014,2014,November,finance,finance,No other sector,hacked,4,Health & other personal records,Reuters
+163,Japan Airlines,750000, Sep 2014,2014,September,transport,transport,No other sector,hacked,2,SSN/Personal details,"WSJ, Japan Airlines"
+162,Staples,1160000, Dec 2014,2014,December,retail,retail,No other sector,hacked,3,Credit card information,Fortune
+161,GMail,5000000, Sep 2014,2014,September,web,web,No other sector,hacked,1,Just email address/Online information,The Next Web
+160,Home Depot,56000000, Sep 2014,2014,September,retail,retail,No other sector,hacked,3,Credit card information,Krebs on Security
+159,Korea Credit Bureau,20000000, Jan 2014,2014,January,finance,finance,No other sector,inside job,5,Full details,Security Week
+158,Dominios Pizzas (France),600000, Jun 2014,2014,June,retail,retail,No other sector,hacked,1,Just email address/Online information,The Guardian
+157,Mozilla,76000, Aug 2014,2014,August,web,web,No other sector,poor security,2,SSN/Personal details,The Guardian
+156,Massive American business hack,160000000, Jul 2013,2013,July,finance,finance,No other sector,hacked,5,Full details,Technology Review
+155,"Affinity Health Plan, Inc.",344579, Aug 2013,2013,August,health,health,No other sector,lost device,4,Health & other personal records,Proskauer
+154,Citigroup,150000, Jul 2013,2013,July,finance,finance,No other sector,oops!,2,SSN/Personal details,Softpedia
+153,Tianya,40000000, Jul 2013,2013,July,web,web,No other sector,hacked,1,Just email address/Online information,"Computer World, Hacker News"
+152,Scribd,500000, Apr 2013,2013,April,web,web,No other sector,hacked,1,Just email address/Online information,"Naked Security, NBC News"
+151,Living Social,50000000, Apr 2013,2013,April,web,web,No other sector,hacked,1,Just email address/Online information,"Naked Security, New York Times"
+150,Yahoo,550000000, Dec 2016,2013,December,web,web,No other sector,hacked,2,SSN/Personal details,"NY Times, BBC"
+149,SnapChat,4600000, Jan 2014,2013,January,"web, tech",web, tech,hacked,2,SSN/Personal details,BBC News
+148,University of Delaware,74000, Aug 2013,2013,August,academic,academic,No other sector,hacked,2,SSN/Personal details,University of Delaware
+147,Central Hudson Gas & Electric,110000, Feb 2013,2013,February,misc,misc,No other sector,hacked,3,Credit card information,eSecurity Planet
+146,Twitter,250000, Feb 2013,2013,February,web,web,No other sector,hacked,1,Just email address/Online information,CNN
+145,"Crescent Health Inc., Walgreens",100000, Feb 2013,2013,February,health,health,No other sector,lost device,4,Health & other personal records,Healthcare IT News
+144,Florida Department of Juvenile Justice,100000, Jan 2013,2013,January,government,government,No other sector,lost device,2,SSN/Personal details,Data Breaches
+143,Advocate Medical Group,4000000, Aug 2013,2013,August,health,health,No other sector,lost device,2,SSN/Personal details,Health IT Security
+142,OVH,200000, Jul 2013,2013,July,web,web,No other sector,hacked,2,SSN/Personal details,OVH
+141,Apple,275000, Jul 2013,2013,July,"tech, web",tech, web,hacked,1,Just email address/Online information,The Guardian
+140,NASDAQ,500000, Jul 2013,2013,July,finance,finance,No other sector,hacked,1,Just email address/Online information,Reuters
+139,UbiSoft,58000000, Jul 2013,2013,July,gaming,gaming,No other sector,hacked,2,SSN/Personal details,BBC News
+138,Ubuntu,2000000, Jul 2013,2013,July,"tech, web",tech, web,hacked,3,Credit card information,Ars Technica
+137,Nintendo,4000000, Jun 2013,2013,June,gaming,gaming,No other sector,hacked,2,SSN/Personal details,ZDNet
+136,National Security Agency,1500000, Jun 2013,2013,June,government,government,No other sector,inside job,5,Full details,Business Insider
+135,Facebook,6000000, Jun 2013,2013,June,web,web,No other sector,oops!,1,Just email address/Online information,Facebook
+134,Evernote,50000000, Mar 2013,2013,March,web,web,No other sector,hacked,1,Just email address/Online information,"Wired, Digital Trends"
+133,Kirkwood Community College,125000, Apr 2013,2013,April,academic,academic,No other sector,hacked,2,SSN/Personal details,eSecurity Planet
+132,Yahoo Japan,22000000, May 2013,2013,May,"tech, web",tech, web,hacked,1,Just email address/Online information,Reuters
+131,Drupal,1000000, May 2013,2013,May,web,web,No other sector,hacked,1,Just email address/Online information,Ars Technica
+130,TerraCom & YourTel,170000, May 2013,2013,May,telecoms,telecoms,No other sector,oops!,2,SSN/Personal details,"Boing Boing, Wired"
+129,Washington State court system,160000, May 2013,2013,May,government,government,No other sector,hacked,2,SSN/Personal details,"Reuters, Privacy Rights"
+128,MacRumours.com,860000, Nov 2013,2013,November,web,web,No other sector,hacked,1,Just email address/Online information,Wired
+127,Court Ventures,200000000, Oct 2013,2013,October,finance,finance,No other sector,inside job,2,SSN/Personal details,"NY Times, Gov Tech"
+126,Vodafone,2000000, Sep 2013,2013,September,telecoms,telecoms,No other sector,inside job,3,Credit card information,Security Week
+125,Adobe,38000000, Oct 2013,2013,October,tech,tech,No other sector,hacked,3,Credit card information,Adobe
+124,"D&B, Altegrity",1000000, Sep 2013,2013,September,tech,tech,No other sector,hacked,3,Credit card information,USA Today; Reuters
+123,ssndob.ms,4000000, Sep 2013,2013,September,web,web,No other sector,hacked,2,SSN/Personal details,Krebs on Security
+122,Target,70000000, Dec 2013,2013,December,retail,retail,No other sector,hacked,3,Credit card information,Huffington Post
+121,China Software Developer Network,6000000, Mar 2012,2012,March,web,web,No other sector,hacked,1,Just email address/Online information,ZDNet
+120,Global Payments,1500000, Apr 2012,2012,April,finance,finance,No other sector,hacked,3,Credit card information,Washington Post
+119,South Carolina Government,228000, Apr 2012,2012,April,health,health,No other sector,inside job,4,Health & other personal records,The State
+118,Three Iranian banks,3000000, Apr 2012,2012,April,finance,finance,No other sector,hacked,5,Full details,ZD Net
+117,California Department of Child Support Services,800000, Apr 2012,2012,April,government,government,No other sector,lost device,2,SSN/Personal details,Business Insider
+116,Emory Healthcare,315000, Apr 2012,2012,April,health,health,No other sector,lost device,4,Health & other personal records,Emory
+115,Office of the Texas Attorney General,6500000, Apr 2012,2012,April,government,government,No other sector,oops!,2,SSN/Personal details,Raw Story
+114,Medicaid,780000, Apr 2012,2012,April,"government, health",government, health,hacked,5,Full details,Reuters
+113,Blizzard,14000000, Aug 2012,2012,August,gaming,gaming,No other sector,hacked,2,SSN/Personal details,Forbes
+112,New York State Electric & Gas,1800000, Jan 2012,2012,January,misc,misc,No other sector,inside job,2,SSN/Personal details,Data Breaches
+111,Memorial Healthcare System,102153, Apr 2012,2012,April,health,health,No other sector,lost device,2,SSN/Personal details,Modern Healthcare
+110,Zappos,24000000, Jan 2012,2012,January,web,web,No other sector,hacked,2,SSN/Personal details,Forbes
+109,Formspring,420000, Jul 2012,2012,July,web,web,No other sector,hacked,1,Just email address/Online information,CNet
+108,KT Corp.,8700000, Jul 2012,2012,July,telecoms,telecoms,No other sector,hacked,2,SSN/Personal details,"Korea Times, CNet"
+107,Yahoo Voices,450000, Jul 2012,2012,July,"tech, web",tech, web,hacked,1,Just email address/Online information,Slashdot
+106,Last.fm,43500000, Sep 2016,2012,September,web,web,No other sector,hacked,1,Just email address/Online information,ZD Net
+105,"LinkedIn, eHarmony, Last.fm",8000000, Jun 2012,2012,June,web,web,No other sector,hacked,1,Just email address/Online information,Cnet
+104,Gamigo,8000000, Jul 2012,2012,July,web,web,No other sector,hacked,1,Just email address/Online information,Forbes
+103,Militarysingles.com,163792, Mar 2012,2012,March,"web, military",web, military,hacked,1,Just email address/Online information,PC World
+102,"""Apple""",12367232, Mar 2012,2012,March,"tech, retail",tech, retail,oops!,2,SSN/Personal details,CNET
+101,Greek government,9000000, Nov 2012,2012,November,government,government,No other sector,hacked,2,SSN/Personal details,Wired
+100,South Carolina State Dept. of Revenue,3600000, Oct 2012,2012,October,government,government,No other sector,hacked,1,Just email address/Online information,Information Week
+99,Dropbox,68700000, Aug 2016,2012,August,web,web,No other sector,hacked,1,Just email address/Online information,The Telegraph
+98,New York City Health & Hospitals Corp.,1700000, Feb 2011,2011,February,health,health,No other sector,lost device,4,Health & other personal records,InfoRisk
+97,"Seacoast Radiology, PA",231400, Jan 2011,2011,January,health,health,No other sector,hacked,2,SSN/Personal details,Fosters
+96,"South Shore Hospital, Massachusetts",800000, Sep 2011,2011,September,health,health,No other sector,lost device,5,Full details,Boston Globe
+95,Betfair,2300000, May 2011,2011,May,web,web,No other sector,hacked,3,Credit card information,FT
+94,"Ankle & foot Center of Tampa Bay, Inc.",156000, Jan 2011,2011,January,health,health,No other sector,hacked,4,Health & other personal records,Phi Privacy
+93,Yale University,43000, Aug 2011,2011,August,academic,academic,No other sector,oops!,2,SSN/Personal details,NBC News
+92,Morgan Stanley Smith Barney,34000, Jul 2011,2011,July,finance,finance,No other sector,lost device,3,Credit card information,ABC News
+91,State of Texas,3500000, Apr 2011,2011,April,government,government,No other sector,oops!,2,SSN/Personal details,Dallas News
+90,Epsilon,3000000, Apr 2011,2011,April,web,web,No other sector,hacked,1,Just email address/Online information,Guardian
+89,Sony PSN,77000000, Apr 2011,2011,April,gaming,gaming,No other sector,hacked,1,Just email address/Online information,Mashable
+88,US Law Enforcement,123461, Aug 2011,2011,August,government,government,No other sector,hacked,3,Credit card information,PC World
+87,University of Wisconsin - Milwaukee,73000, Aug 2011,2011,August,academic,academic,No other sector,hacked,2,SSN/Personal details,ZDNet
+86,Stratfor,935000, Dec 2011,2011,December,military,military,No other sector,hacked,3,Credit card information,NYTimes
+85,Chinese gaming sites,10000000, Dec 2011,2011,December,web,web,No other sector,hacked,1,Just email address/Online information,eHacking News
+84,Southern California Medical-Legal Consultants,300000, Jun 2011,2011,June,health,health,No other sector,hacked,2,SSN/Personal details,Data Breaches
+83,Writerspace.com,62000, Jun 2011,2011,June,web,web,No other sector,hacked,1,Just email address/Online information,PC Mag
+82,Bethesda Game Studios,200000, Jun 2011,2011,June,gaming,gaming,No other sector,hacked,1,Just email address/Online information,PC World
+81,Sega,1290755, Jun 2011,2011,June,gaming,gaming,No other sector,hacked,2,SSN/Personal details,ZDNet
+80,Citigroup,210000, Jun 2011,2011,June,finance,finance,No other sector,hacked,3,Credit card information,PC World
+79,Sony Pictures,1000000, Jun 2011,2011,June,web,web,No other sector,hacked,1,Just email address/Online information,Mashable
+78,Accendo Insurance Co. ,175350, Jun 2011,2011,June,health,health,No other sector,poor security,2,SSN/Personal details,Data Breaches
+77,Washington Post,1270000, Jul 2011,2011,July,misc,misc,No other sector,hacked,2,SSN/Personal details,PC Mag
+76,Health Net - IBM,1900000, Mar 2011,2011,March,health,health,No other sector,lost device,3,Credit card information,IEEE Spectrum
+75,Eisenhower Medical Center,514330, Apr 2011,2011,April,health,health,No other sector,lost device,4,Health & other personal records,Data Breach Info
+74,Spartanburg Regional Healthcare System,400000, May 2011,2011,May,health,health,No other sector,lost device,4,Health & other personal records,GoUpstate
+73,NHS,8600000, Jun 2011,2011,June,health,health,No other sector,lost device,4,Health & other personal records,Alphr
+72,San Francisco Public Utilities Commission ,180000, Jun 2011,2011,June,government,government,No other sector,hacked,1,Just email address/Online information,CNET
+71,Sony Online Entertainment,24600000, May 2011,2011,May,gaming,gaming,No other sector,hacked,3,Credit card information,Computer Weekly
+70,Honda Canada,283000, May 2011,2011,May,retail,retail,No other sector,hacked,2,SSN/Personal details,Guelph Mercury
+69,Massachusetts Government,210000, May 2011,2011,May,government,government,No other sector,hacked,5,Full details,NBC News
+68,Oregon Department of Motor Vehicles,1000000, May 2011,2011,May,government,government,No other sector,hacked,2,SSN/Personal details,Data Breaches
+67,Steam,35000000, Nov 2011,2011,November,web,web,No other sector,hacked,3,Credit card information,SC Mag
+66,Restaurant Depot,200000, Nov 2011,2011,November,retail,retail,No other sector,hacked,3,Credit card information,NBC News
+65,Nexon Korea Corp,13200000, Nov 2011,2011,November,web,web,No other sector,hacked,2,SSN/Personal details,Reuters
+64,Nemours Foundation,1600000, Oct 2011,2011,October,health,health,No other sector,lost device,4,Health & other personal records,Law360
+63,Sutter Medical Foundation,4243434, Nov 2011,2011,November,health,health,No other sector,lost device,2,SSN/Personal details,Trend Micro
+62,Tricare,4901432, Sep 2011,2011,September,"military, health",military, health,lost device,4,Health & other personal records,Reuters
+61,"AvMed, Inc.",1220000, Feb 2010,2010,February,health,health,No other sector,lost device,2,SSN/Personal details,Hack Notice
+60,Blue Cross Blue Shield of Tennessee,1023209, May 2010,2010,May,health,health,No other sector,lost device,2,SSN/Personal details,Data Breaches
+59,US Military,260000, Nov 2010,2010,November,military,military,No other sector,inside job,5,Full details,Guardian
+58,Gawker.com,1500000, Dec 2010,2010,December,web,web,No other sector,hacked,2,SSN/Personal details,Guardian
+57,"Triple-S Salud, Inc.",398000, Nov 2010,2010,November,health,health,No other sector,lost device,4,Health & other personal records,Data Breaches
+56,Ohio State University,760000, Dec 2010,2010,December,academic,academic,No other sector,hacked,2,SSN/Personal details,The Lantern
+55,"Emergency Healthcare Physicians, Ltd.",180111, May 2010,2010,May,health,health,No other sector,lost device,4,Health & other personal records,Healthcare Info Security
+54,Colorado government,105470, Jul 2010,2010,July,health,health,No other sector,lost device,2,SSN/Personal details,Data Breaches
+53,AT&T,114000, Jun 2010,2010,June,telecoms,telecoms,No other sector,hacked,1,Just email address/Online information,Guardian
+52,Lincoln Medical & Mental Health Center,130495, Jun 2010,2010,June,health,health,No other sector,lost device,4,Health & other personal records,Alert Boot
+51,Educational Credit Management Corp,3300000, Mar 2010,2010,March,finance,finance,No other sector,lost device,2,SSN/Personal details,Wall Street Journal
+50,US Federal Reserve Bank of Cleveland,400000, Nov 2010,2010,November,finance,finance,No other sector,hacked,3,Credit card information,Bank Info Security
+49,Classified Iraq War documents,392000, Oct 2010,2010,October,government,government,No other sector,inside job,2,SSN/Personal details,Forbes
+48,Heartland,130000000, Jan 2009,2009,January,finance,finance,No other sector,hacked,3,Credit card information,Dark Reading
+47,US National Guard,131000, Dec 2009,2009,December,military,military,No other sector,lost device,2,SSN/Personal details,CNN
+46,RockYou!,32000000, Dec 2009,2009,December,"web, gaming",web, gaming,hacked,1,Just email address/Online information,Tech Crunch
+45,CheckFree Corporation,5000000, Jan 2009,2009,January,finance,finance,No other sector,hacked,1,Just email address/Online information,Computer World
+44,Network Solutions,573000, Jul 2009,2009,July,web,web,No other sector,hacked,3,Credit card information,Washington Post
+43,Virginia Prescription Monitoring Program,531400, May 2009,2009,May,health,health,No other sector,hacked,2,SSN/Personal details,Digital Health
+42,University of California Berkeley,160000, May 2009,2009,May,academic,academic,No other sector,hacked,3,Credit card information,Cnet
+41,Health Net ,1500000, Nov 2009,2009,November,health,health,No other sector,lost device,4,Health & other personal records,Computer World
+40,US Military,76000000, Oct 2009,2009,October,military,military,No other sector,lost device,2,SSN/Personal details,Wired
+39,Compass Bank,1000000, Mar 2008,2008,March,finance,finance,No other sector,inside job,3,Credit card information,Computer Weekly
+38,Hannaford Brothers Supermarket Chain,4200000, Mar 2008,2008,March,retail,retail,No other sector,hacked,3,Credit card information,NetworkWorld
+37,University of Miami,2100000, Apr 2008,2008,April,academic,academic,No other sector,lost device,3,Credit card information,Identity Theft
+36,BNY Mellon Shareowner Services,4500000, May 2008,2008,May,finance,finance,No other sector,lost device,1,Just email address/Online information,Reuters
+35,Countrywide Financial Corp,2500000, Aug 2008,2008,August,finance,finance,No other sector,inside job,2,SSN/Personal details,LATimes
+34,UK Home Office,84000, Aug 2008,2008,August,government,government,No other sector,lost device,2,SSN/Personal details,Wikipedia
+33,RBS Worldpay,1500000, Dec 2008,2008,December,finance,finance,No other sector,hacked,5,Full details,The Register
+32,Auction.co.kr,18000000, Feb 2008,2008,February,web,web,No other sector,hacked,3,Credit card information,Dark Reading
+31,GS Caltex,11100000, Sep 2008,2008,September,misc,misc,No other sector,inside job,2,SSN/Personal details,The Dong-a Ilbo
+30,AT&T,113000, Jun 2008,2008,June,telecoms,telecoms,No other sector,lost device,1,Just email address/Online information,NetworkWorld
+29,Stanford University,72000, Jun 2008,2008,June,academic,academic,No other sector,lost device,2,SSN/Personal details,SFGate
+28,University of Utah Hospitals & Clinics,2200000, Jun 2008,2008,June,academic,academic,No other sector,lost device,4,Health & other personal records,Salt Lake Tribune
+27,Chile Ministry Of Education,6000000, May 2008,2008,May,government,government,No other sector,hacked,1,Just email address/Online information,BBC News
+26,Texas Lottery,89000, Nov 2008,2008,November,government,government,No other sector,inside job,2,SSN/Personal details,Houston Chronicle
+25,Starbucks,97000, Nov 2008,2008,November,retail,retail,No other sector,lost device,2,SSN/Personal details,Info Watch
+24,UK Ministry of Defence,1700000, Oct 2008,2008,October,government,government,No other sector,lost device,5,Full details,BBC News
+23,"T-Mobile, Deutsche Telecom",17000000, Oct 2008,2008,October,telecoms,telecoms,No other sector,lost device,1,Just email address/Online information,FT
+22,Norwegian Tax Authorities,3950000, Sep 2008,2008,September,government,government,No other sector,oops!,2,SSN/Personal details,Info Watch
+21,Service Personnel and Veterans Agency (UK),50500, Sep 2008,2008,September,government,government,No other sector,lost device,2,SSN/Personal details,BBC News
+20,Monster.com,1600000, Aug 2007,2007,August,web,web,No other sector,hacked,2,SSN/Personal details,BBC News
+19,Driving Standards Agency,3000000, Dec 2007,2007,December,government,government,No other sector,lost device,2,SSN/Personal details,BBC News
+18,Fidelity National Information Services,8500000, Jul 2007,2007,July,finance,finance,No other sector,inside job,3,Credit card information,PCWorld
+17,City and Hackney Teaching Primary Care Trust,160000, Dec 2007,2007,December,government,government,No other sector,lost device,2,SSN/Personal details,Computer Weekly
+16,Gap Inc,800000, Sep 2007,2007,September,retail,retail,No other sector,lost device,2,SSN/Personal details,PC World
+15,Dai Nippon Printing,8637405, Mar 2007,2007,March,retail,retail,No other sector,inside job,1,Just email address/Online information,Compare Business Products
+14,TK / TJ Maxx,94000000, Mar 2007,2007,March,retail,retail,No other sector,hacked,3,Credit card information,ZD Net
+13,JP Morgan Chase,2600000, May 2007,2007,May,finance,finance,No other sector,lost device,3,Credit card information,PC World
+12,UK Revenue & Customs,25000000, Nov 2007,2007,November,government,government,No other sector,lost device,1,Just email address/Online information,BBC News
+11,TD Ameritrade,6300000, Sep 2007,2007,September,finance,finance,No other sector,hacked,1,Just email address/Online information,"Wired, CBNC"
+10,AOL,20000000, Aug 2006,2006,August,web,web,No other sector,oops!,1,Just email address/Online information,Tech Crunch
+9,US Dept of Vet Affairs,26500000, Jul 2006,2006,July,"government, military",government, military,lost device,2,SSN/Personal details,"GCN, US Gov"
+8,Automatic Data Processing,125000, Jul 2006,2006,July,finance,finance,No other sector,poor security,2,SSN/Personal details,ABC News
+7,KDDI,4000000, Jun 2006,2006,June,telecoms,telecoms,No other sector,hacked,1,Just email address/Online information,Computer World
+6,Hewlett Packard,200000, Mar 2006,2006,March,"tech, retail",tech, retail,lost device,2,SSN/Personal details,Computer Weekly
+5,Ameritrade Inc.,200000, Apr 2005,2005,April,finance,finance,No other sector,lost device,2,SSN/Personal details,NBC
+4,Citigroup,3900000, Jun 2005,2005,June,finance,finance,No other sector,lost device,3,Credit card information,NY Times
+3,Cardsystems Solutions Inc. ,40000000, Jun 2005,2005,June,finance,finance,No other sector,hacked,3,Credit card information,Wired
+2,AOL,92000000, Jun 2004,2004,June,web,web,No other sector,inside job,1,Just email address/Online information,CNN
