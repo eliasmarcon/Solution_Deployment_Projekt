@@ -66,7 +66,7 @@ def getVorfälleYear(df, start_year, end_year):
                                     )
                         )
 
-        fig.update_layout(title = {'text' : "Vorfälle innerhalb des Jahres!"}, paper_bgcolor = "lightgray")
+        fig.update_layout(title = {'text' : "Lost Records innerhalb des Jahres!"}, paper_bgcolor = "lightgray")
 
     else:
 
@@ -77,7 +77,7 @@ def getVorfälleYear(df, start_year, end_year):
                                     )
                         )
 
-        fig.update_layout(title = {'text' : "Vorfälle innerhalb des gewählten Zeitraums!"}, paper_bgcolor = "lightgray")
+        fig.update_layout(title = {'text' : "Vorfälle innerhalb Lost Recordsdes gewählten Zeitraums!"}, paper_bgcolor = "lightgray")
 
     return fig
 
