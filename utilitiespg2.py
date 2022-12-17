@@ -4,253 +4,186 @@ import pandas as pd
 
 import utilities
 
-from datetime import datetime
-from dash import html, callback
-from dash import dcc
-from dash.dependencies import Input, Output
 
-##############################################
-############### Style Sectiopn ###############
-##############################################
-def getStyleSection(df, togglevalue):
+# filter multiple Sectors 
+def getMultipleSectors(df, sector):
 
-    style = [html.H6('Select organisation of your choice.'),
-            html.Div( 
-                className ='div-user-controls',
-                children= [
-                    html.Div( 
-                        className='div-for-land-dropdown',
-                        children=[ 
-                            dcc.Dropdown(
-                                id = 'select-organisation',
-                                options = utilities.generate_options(df, 'organisation'), value = 'Twitter', className = 'postselector', multi = togglevalue 
-                            )
-                        ],
-                    ),
-                ]
-            ),
-            html.Hr(),
+    if len(sector) == 0:
 
-            html.H6('Select Year of your choice.'),
-            html.Div( 
-                className = 'div-user-controls',
-                children= [
-                    html.Div( 
-                        className = 'div-for-year-picker',
-                        children = [ 
-                            dcc.Dropdown(
-                                id = 'select-year',
-                                options = utilities.generate_options(df, 'year'), value = '2004', className = 'postselector'
-                            )
-                        ],
-                        style = {'width': '49%', 'display': 'inline-block'}
-                    ),
-                    html.Div( 
-                        className = 'div-for-year2-picker',
-                        children = [ 
-                            dcc.Dropdown(
-                                id = 'select-year2',
-                                options = utilities.generate_options(df, 'year'), value = '2022', className = 'postselector'
-                            )
-                        ],
-                        style = {'width': '49%', 'display': 'inline-block'}
-                    )
-                ]
-            ),
-            html.Hr(),
-
-            # html.H6('Select Sector of your choice.'),
-            # html.Div( 
-            #     className = 'div-user-controls',
-            #     children= [
-            #         html.Div( 
-            #             className = 'div-for-sector-picker',
-            #             children = [ 
-            #                 dcc.Dropdown(
-            #                     id = 'select-sector',
-            #                     options = utilities.generate_options(df, 'sector_1'), value = 'web', className = 'postselector', multi = togglevalue 
-            #                 )
-            #             ],
-            #             style = {'width': '100%', 'display': 'inline-block'}
-            #         )
-            #     ]
-            # ),
-            # html.Hr(),
-
-            # Selector Dependencie für Organisation
-            # html.H6('Select Sector of your choice.'),
-            # html.Div( 
-            #     className = 'div-user-controls',
-            #     children= [
-            #         html.Div( 
-            #             className = 'div-for-sector-picker',
-            #             children = [ 
-            #                 dcc.Dropdown(
-            #                     id = 'select-sector-dependend',
-            #                     options = utilities.generate_options(df, 'sector_1'), value = 'web', className = 'postselector', multi = True 
-            #                 )
-            #             ],
-            #             style = {'width': '100%', 'display': 'inline-block'}
-            #         )
-            #     ]
-            # ),
-            # html.Hr(),
-
-            html.H6('Select Method of your choice.'),
-            html.Div( 
-                className = 'div-user-controls',
-                children= [
-                    html.Div( 
-                        className = 'div-for-method-picker',
-                        children = [ 
-                            dcc.Dropdown(
-                                id = 'select-method-dependend', multi = togglevalue 
-                                #options = utilities.generate_options(df, 'method'), value = 'hacked', className = 'postselector'
-                            )
-                        ],
-                    ),
-                ]
-            ),
-            html.Hr(),
-
-            html.H6('Select Data Sensitivity of your choice.'),
-            html.Div( 
-                className = 'div-user-controls',
-                children= [
-                    html.Div( 
-                        className = 'div-for-sensitivity-picker',
-                        children = [ 
-                            dcc.Dropdown(
-                                id = 'select-data-sensitivity-dependend', multi = togglevalue, optionHeight = 50
-                                #options = utilities.generate_options(df, 'data_sensitivity_text'), className = 'postselector', value = 'Full details', optionHeight = 50, multi = togglevalue 
-                            )
-                        ],
-                    ),
-                ]
-            ),
-            html.Hr()]
-
-    return style
-
-
-
-########################################################################################################################################################################################
-########################################################################################################################################################################################
-########################################################################################################################################################################################
-
-
-def getMultipleFilters(df, start_year : int, end_year : int, organisation, method, data_sensitivity, toggl_button):
+        return df
     
-    df = utilities.checkYear(df, start_year, end_year)
+    elif type(sector) == str:
 
-    if not toggl_button:
-        
-        df2 = df[df['organisation'] == organisation]
-        
-        if method != None:
-
-            df2 = df2[df2['method'] == method]
-        
-            if data_sensitivity != None:
-
-                df2 = df2[df2['data_sensitivity_text'] == data_sensitivity]
+        df_temp = df[df['sector_1'] == sector]
 
     else:
 
-        if type(organisation) == str:
+        df_temp = df[df['sector_1'].isin(sector)]
 
-            organisation = organisation.split()
-
-        df2 = df[df['organisation'].isin(organisation)]
-
-        if method != None:
-
-            df2 = df2[df2['method'].isin(method)]
-
-            if data_sensitivity != None:
-
-                df2 = df2[df2['data_sensitivity_text'].isin(data_sensitivity)]
-
-    return df2
-
-
+    return df_temp
 
 ##############################################
-########## KPI Anzahl Lost Records ###########
+########## KPI Anzahl Generealisiert #########
 ##############################################
-def getKPIAnzahlLostRecords(df_temp, titlename):
+def getKPIDatensetgroeße(df, start_year, end_year, column, titlename):
 
-    summe = df_temp.records_lost.sum()
+    df_year = utilities.checkYear(df, start_year, end_year)
+
+    df = df_year[column].unique() 
 
     fig = go.Figure(go.Indicator(
-                                    mode = "number",
-                                    value = summe,
+                                    mode = "number+delta",
+                                    value = len(df),
                                     domain = {'x': [0, 1], 'y': [0, 1]}
                             )
                     )
 
-    if len(titlename) > 1:
-        
-        fig.update_layout(title = {'text' : "Summe der Lost Records für {} !".format(titlename)})
+    fig.update_layout(title = {'text' : "Anzahl an eindeutigen " + titlename + "!"}, paper_bgcolor = "lightgray")
+
+    return fig
+
+
+##############################################
+######### KPI Fälle Jahr & Zeitperiode #######
+##############################################
+def getVorfälleYear(df, start_year, end_year):
+
+    df_year = utilities.checkYear(df, start_year, end_year)
+
+    if int(start_year) == int(end_year):
+
+        length_year_before = len(df[df['year'] == int(start_year - 1)])
+
+        fig = go.Figure(go.Indicator(
+                                        mode = "number+delta",
+                                        value = len(df_year),
+                                        #number = {'prefix': "$"},
+                                        delta = {'position': "bottom", 
+                                                 'reference': length_year_before, 
+                                                 'valueformat' : '.2%',
+                                                 'relative': True},
+                                        domain = {'x': [0, 1], 'y': [0, 1]}
+                                    )
+                        )
+
+        fig.update_layout(title = {'text' : "Vorfälle innerhalb des Jahres!"}, paper_bgcolor = "lightgray")
 
     else:
 
-        fig.update_layout(title = {'text' : "Summe der Lost Records für " + str(titlename[0]) + "!"})
+        fig = go.Figure(go.Indicator(
+                                        mode = "number+delta",
+                                        value = len(df_year),
+                                        domain = {'x': [0, 1], 'y': [0, 1]}
+                                    )
+                        )
+
+        fig.update_layout(title = {'text' : "Vorfälle innerhalb des gewählten Zeitraums!"}, paper_bgcolor = "lightgray")
 
     return fig
 
 
 
 ##############################################
-########## Pie Anzahl Lost Records ###########
+#### KPI Lost Records Jahr & Zeitperiode #####
 ##############################################
-def getPieAnzahlLostRecords(df_temp, titlename):
+def getLostRecordsYear(df, start_year, end_year):
 
-    df = df_temp.groupby(['organisation'])['records_lost'].sum().reset_index(name = 'anzahl')
-    fig = px.pie(df, values = df.anzahl, names = df.organisation, hole = .7)
+    df_year = utilities.checkYear(df, start_year, end_year)
 
-    if len(titlename) > 1:
-        
-        fig.update_layout(legend = dict(orientation = "h"), title_text = "Summe der Lost Records für {} !".format(titlename), title_x = 0.5)
+    if int(start_year) == int(end_year):
+
+        records_year_before = df[df['year'] == int(start_year - 1)]['records_lost'].sum()
+
+        fig = go.Figure(go.Indicator(
+                                        mode = "number+delta",
+                                        value = df_year['records_lost'].sum(),
+                                        delta = {'position': "bottom", 
+                                                 'reference': records_year_before,
+                                                 'valueformat' : '.2%',
+                                                 'relative': True},
+                                        domain = {'x': [0, 1], 'y': [0, 1]}
+                                    )
+                        )
+
+        fig.update_layout(title = {'text' : "Vorfälle innerhalb des Jahres!"}, paper_bgcolor = "lightgray")
 
     else:
 
-        fig.update_layout(legend = dict(orientation = "h"), title_text = 'Verteilung von ' + str(titlename[0]) + "!", title_x = 0.5)
-    
+        fig = go.Figure(go.Indicator(
+                                        mode = "number+delta",
+                                        value = df_year['records_lost'].sum(),
+                                        domain = {'x': [0, 1], 'y': [0, 1]}
+                                    )
+                        )
+
+        fig.update_layout(title = {'text' : "Vorfälle innerhalb des gewählten Zeitraums!"}, paper_bgcolor = "lightgray")
+
     return fig
 
 
 
 ##############################################
-### Barchart Anzahl Lost Records over time ###
+########### Get Barchart pro Jahr ############
 ##############################################
-def getBarLostRecordsTime(df_temp, titlename):
+def getBarchartProJahr(df, start_year, end_year):
 
-    df_temp['date_2'] = pd.to_datetime(df_temp['date'])
-    # df_temp['date_2'] = df_temp['date_2'].dt.date
+    df_year = utilities.checkYear(df, start_year, end_year)
+    df = df_year.groupby(['year']).sum().reset_index().sort_values(by = ['year'])
 
-    print(df_temp)
+    # print(df.dtypes)
 
-    fig = px.bar(df_temp, x = "records_lost", y = "date_2", color = 'organisation', text = df_temp.records_lost)
-
-    if len(titlename) > 1:
-        
-        fig.update_layout(title = {'text' : "Summe der Lost Records für {} !".format(titlename)})
-
-    else:
-
-        fig.update_layout(title = {'text' : "Summe der Lost Records für " + str(titlename[0]) + "!"})
-
-    fig.update_traces(texttemplate='%{text:.2s}', textposition = 'outside', textfont_size = 12, textangle = 0)
-    fig.update_xaxes(title = None)
-    fig.update_yaxes(title = None)
-
+    fig = px.bar(df, x = 'year', y = 'records_lost', color = 'year', text = ['{:.2} Mrd'.format(x / 1000000000) for x in df['records_lost']])
+    fig.update_traces(textposition = 'outside', textfont_size = 12, textangle = 0)
+    fig.update_layout(title = {'text' : "Verteilung der records_lost innerhalb des ausgewählten Zeitraums!"})
 
     return fig
 
 
 
+##############################################
+####### Get Barchart pro Jahr & Sektor #######
+##############################################
+def getBarchartProJahrSektor(df, start_year, end_year):
+
+    df_year = utilities.checkYear(df, start_year, end_year)
+    df = df_year.groupby(['year', 'sector_1']).sum().reset_index().sort_values(by = ['year'])
+
+    fig = px.bar(df, x = 'year', y = 'records_lost', color = 'sector_1', text = ['{:.2} Mrd'.format(x / 1000000000) for x in df['records_lost']])
+    fig.update_traces(textposition = 'outside', textfont_size = 12, textangle = 0)
+    fig.update_layout(title = {'text' : "Verteilung der records_lost innerhalb des ausgewählten Zeitraums!"})
+
+    return fig
 
 
 
+##############################################
+### Get Barchart größten Unternehmen Leaks ###
+##############################################
+def getBarchartLeaksUnternehmen(df, start_year, end_year):
+
+    df_year = utilities.checkYear(df, start_year, end_year)
+
+    df = df_year.groupby(['organisation']).sum().reset_index().sort_values(by = ['records_lost'])
+    df = df[-10:]
+
+    fig = px.bar(df, x = "organisation", y = 'records_lost', color = "organisation", text = ['{:.2} Mrd'.format(x / 1000000000) for x in df['records_lost']])
+    fig.update_traces(textposition = 'inside', textfont_size = 12, textangle = 0)
+    fig.update_layout(title = {'text' : "Unternehmen sortiert nach den insgesamten Leaks innerhalb der Zeitperiode!"})
+
+    return fig
+
+
+
+##############################################
+############### Get Piechart #################
+##############################################
+def getPieChart(df, start_year, end_year, column, titlename):
+
+    df_year = utilities.checkYear(df, start_year, end_year)
+    df = df_year.groupby(column).size().reset_index(name = 'anzahl')
+    fig = px.pie(df, values = df.anzahl, names = df[column], hole = .7)
+
+    fig.update_layout(legend = dict(orientation = "h"), title_text = 'Verteilung von ' + titlename + "!", title_x=0.5)
+
+    return fig
 

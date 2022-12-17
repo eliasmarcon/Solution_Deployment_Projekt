@@ -5,7 +5,7 @@ import plotly.express as px
 import pandas as pd
 import dash_daq as daq
 
-import utilities, utilitiespg2
+import utilities, utilitiespg3
 
 from dash import html
 from dash import dcc, callback
@@ -13,16 +13,16 @@ from dash.dependencies import Input, Output
 
 
 # App Main
-dash.register_page(__name__, name = 'Dritte Seite')
+dash.register_page(__name__, name = 'Organisation Analysis')
 
 
-# # Load Dataset
-# df = utilities.loadData()
+# Load Dataset
+df = utilities.loadData()
 
 
-# ######################################################################
-# ######################### Style Section ##############################
-# ######################################################################
+######################################################################
+######################### Style Section ##############################
+######################################################################
 
 # Create Slidebar
 sidebar = html.Div(
@@ -75,12 +75,12 @@ content = html.Div(
             [
                 dbc.Col(
                     [
-                        dcc.Graph(id = 'KPI_Fälle_Zeitperiode', figure = {})
+                        dcc.Graph(id = 'KPIAnzahlLostRecords', figure = {})
                     ], width = 6
                 ),
                 dbc.Col(
                     [
-                        dcc.Graph(id = 'KPI_Lost_records', figure = {})
+                        dcc.Graph(id = 'PieAnzahlLostRecords', figure = {})
                     ], width = 6
                 )
             ]#, style = {"height": "10%"}
@@ -89,40 +89,21 @@ content = html.Div(
             [
                 dbc.Col(
                     [
-                        dcc.Graph(id = 'KPI_Datensetgroeße_sector', figure = {})
-                    ], width = 4
-                ),
-                dbc.Col(
-                    [
-                        dcc.Graph(id = 'KPI_Datensetgroeße_methoden', figure = {})
-                    ], width = 4
-                ),
-                dbc.Col(
-                    [
-                        dcc.Graph(id = 'KPI_Datensetgroeße_data_sensi', figure = {})
-                    ], width = 4
-                )
-            ]
-        ),
-        dbc.Row(
-            [
-                dbc.Col(
-                    [
-                        dcc.Graph(id = 'Barchart_pro_Jahr', figure = {})
+                        dcc.Graph(id = 'BarLostRecordsTime', figure = {})
                     ], width = 12
                 )
             ]
         ),
-        dbc.Row(
-            [
-                dbc.Col(
-                    [
-                        dcc.Graph(id = 'Barchart_pro_Jahr_Sektor', figure = {})
-                    ], width = 12
-                )
+        # dbc.Row(
+        #     [
+        #         dbc.Col(
+        #             [
+        #                 dcc.Graph(id = 'Barchart_pro_Jahr_Sektor', figure = {})
+        #             ], width = 12
+        #         )
                 
-            ]
-        )
+        #     ]
+        # )
     ]
 )
 
@@ -146,124 +127,105 @@ layout = html.Div([
 ])
 
 
-# ######################################################################
-# #################### Dependencie Selection ###########################
-# #### Eher nicht weil dann zu wenig flexibilität, was sektoren und ####
-# #### methoden angeht##################################################
-# ######################################################################
-# # @callback(
-# # Output('select-sector-dependend', 'options'),
-# # Input('select-organisation', 'value'))
-# # def set_cities_options(selected_country):
+######################################################################
+#################### Dependencie Selection ###########################
+######################################################################
+# Callback for toggle switch button
+@callback(
+    Output('my-toggle-switch-output', 'children'),
+    Input('my-toggle-switch', 'on')
+)
+def update_output(value):
+
+    div = utilitiespg3.getStyleSection(df, value)
+
+    return div
+
+# Auswahl für Method based on Organisation
+@callback(
+    Output('select-method-dependend', 'options'),
+    Input('select-organisation', 'value'))
+def getAuswahlMethod(selected_country):
     
-# #     print("ich bin hier")
+    if type(selected_country) == str:
+        
+        labels = df[df['organisation'] == selected_country]['method'].unique()
 
-# #     labels = df[df['organisation'] == selected_country]['sector_1'].unique()
+    else:
 
-# #     return labels
+        labels = df[df['organisation'].isin(selected_country)]['method'].unique()
 
+    return labels
 
+# Auswahl für Data Senistivity based on Organisation und Method
+@callback(
+    Output('select-data-sensitivity-dependend', 'options'),
+    Input('select-organisation', 'value'),
+    Input('select-method-dependend', 'value'))
+def getAuswahlDataSensitivity(selected_country, selected_method):
 
+    if type(selected_country) == str:
+        
+        df2 = df[df['organisation'] == selected_country]
+        labels = df2[df2['method'] == selected_method]['data_sensitivity_text'].unique()
 
+    else:
 
+        df2 = df[df['organisation'].isin(selected_country)]
+        labels = df2[df2['method'].isin(selected_method)]['data_sensitivity_text'].unique()
 
-# ######################################################################
-# #################### Function Plot Section ###########################
-# ######################################################################
-# # Callback for toggle switch button
-# @callback(
-#     Output('my-toggle-switch-output', 'children'),
-#     Input('my-toggle-switch', 'on')
-# )
-# def update_output(value):
-
-#     div = utilitiespg2.getStyleSection(df, value)
-
-#     return div
-
-# # KPI Anzahl unterschiedlicher Sektoren
-# @callback( 
-#     Output('KPI_Datensetgroeße_sector', 'figure'),
-#     Input('select-year', 'value'),
-#     Input('select-year2', 'value'),
-#     Input('select-sector', 'value'),
-#     Input('select-organisation', 'value'))
-# def generateKPIDatensetgroeßeSector(start_year : int, end_year : int):
-
-#     # df_temp = utilities.getMultipleSectors(df, sector)
-#     fig = utilities.getKPIDatensetgroeße(df, start_year, end_year, 'sector_1', 'Sektoren')
-
-#     return fig
+    return labels
 
 
-# # # KPI Anzahl unterschiedlicher Methoden
-# # @callback( 
-# #     Output('KPI_Datensetgroeße_methoden', 'figure'),
-# #     Input('select-year', 'value'),
-# #     Input('select-year2', 'value'))
-# # def generateKPIDatensetgroeßeMethod(start_year : int, end_year : int):
+######################################################################
+#################### Function Plot Section ###########################
+######################################################################
 
-# #     fig = utilities.getKPIDatensetgroeße(df, start_year, end_year, 'method', 'Methoden')
+# KPI an Lost Records
+@callback( 
+    Output('KPIAnzahlLostRecords', 'figure'),
+    Input('select-year', 'value'),
+    Input('select-year2', 'value'),
+    Input('select-organisation', 'value'),
+    Input('select-method-dependend', 'value'),
+    Input('select-data-sensitivity-dependend', 'value'),
+    Input('my-toggle-switch', 'on'))
+def generateKPIAnzahlLostRecords(start_year : int, end_year : int, organisation, method, data_sensitivity, togglbutton):
 
-# #     return fig
+    df_temp = utilitiespg3.getMultipleFilters(df, start_year, end_year, organisation, method, data_sensitivity, togglbutton)
+    fig = utilitiespg3.getKPIAnzahlLostRecords(df_temp, df_temp.organisation.unique())
 
+    return fig
 
-# # # KPI Anzahl unterschiedlicher Data Senistivities
-# # @callback( 
-# #     Output('KPI_Datensetgroeße_data_sensi', 'figure'),
-# #     Input('select-year', 'value'),
-# #     Input('select-year2', 'value'))
-# # def generateKPIDatensetgroeßeDataSensitivity(start_year : int, end_year : int):
+# Pie an Lost Records
+@callback( 
+    Output('PieAnzahlLostRecords', 'figure'),
+    Input('select-year', 'value'),
+    Input('select-year2', 'value'),
+    Input('select-organisation', 'value'),
+    Input('select-method-dependend', 'value'),
+    Input('select-data-sensitivity-dependend', 'value'),
+    Input('my-toggle-switch', 'on'))
+def generatePieAnzahlLostRecords(start_year : int, end_year : int, organisation, method, data_sensitivity, togglbutton):
 
-# #     fig = utilities.getKPIDatensetgroeße(df, start_year, end_year, 'data_sensitivity', 'Data Senistivity')
+    df_temp = utilitiespg3.getMultipleFilters(df, start_year, end_year, organisation, method, data_sensitivity, togglbutton)
+    fig = utilitiespg3.getPieAnzahlLostRecords(df_temp, df_temp.organisation.unique())
 
-# #     return fig
-
-
-# # # KPI Fälle Zeitperiode / Jahr
-# # @callback( 
-# #     Output('KPI_Fälle_Zeitperiode', 'figure'),
-# #     Input('select-year', 'value'),
-# #     Input('select-year2', 'value'))
-# # def generateKPIVorfälle(start_year : int, end_year : int):
-
-# #     fig = utilities.getVorfälleYear(df, start_year, end_year)
-
-# #     return fig
-
-# # # KPI Lost records Zeitperiode / Jahr
-# # @callback( 
-# #     Output('KPI_Lost_records', 'figure'),
-# #     Input('select-year', 'value'),
-# #     Input('select-year2', 'value'))
-# # def generateKPIVorfälle(start_year : int, end_year : int):
-
-# #     fig = utilities.getLostRecordsYear(df, start_year, end_year)
-
-# #     return fig
+    return fig
 
 
-# # # Fälle pro Jahr
-# # @callback( 
-# #     Output('Barchart_pro_Jahr', 'figure'),
-# #     Input('select-year', 'value'),
-# #     Input('select-year2', 'value'))
-# # def generateBarchartProJahr(start_year : int, end_year : int):
+# Bar an Lost Records over time
+@callback( 
+    Output('BarLostRecordsTime', 'figure'),
+    Input('select-year', 'value'),
+    Input('select-year2', 'value'),
+    Input('select-organisation', 'value'),
+    Input('select-method-dependend', 'value'),
+    Input('select-data-sensitivity-dependend', 'value'),
+    Input('my-toggle-switch', 'on'))
+def generateBarLostRecordsTime(start_year : int, end_year : int, organisation, method, data_sensitivity, togglbutton):
 
-# #     fig = utilities.getBarchartProJahr(df, start_year, end_year)
+    df_temp = utilitiespg3.getMultipleFilters(df, start_year, end_year, organisation, method, data_sensitivity, togglbutton)
+    fig = utilitiespg3.getBarLostRecordsTime(df_temp, df_temp.organisation.unique())
 
-# #     return fig
-
-# # # Fälle pro Jahr und Sektor
-# # @callback( 
-# #     Output('Barchart_pro_Jahr_Sektor', 'figure'),
-# #     Input('select-year', 'value'),
-# #     Input('select-year2', 'value'))
-# # def generateBarchartProJahrSektor(start_year : int, end_year : int):
-
-# #     fig = utilities.getBarchartProJahrSektor(df, start_year, end_year)
-
-# #     return fig
-
-
-
+    return fig
