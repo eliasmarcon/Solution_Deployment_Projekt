@@ -223,12 +223,6 @@ def getPieAnzahlLostRecords(df_temp, titlename):
 ##############################################
 def getBarLostRecordsTime(df_temp, titlename):
 
-    df_temp['date_2'] = pd.to_datetime(df_temp['date'])
-    df_temp['date_2'] = df_temp['date_2'].dt.date
-
-    # print(df_temp)
-    # print(df_temp.dtypes)
-
     fig = px.bar(df_temp, x = "records_lost", y = "year", color = 'organisation', text = df_temp.records_lost, orientation='h')
 
     if len(titlename) > 1:
