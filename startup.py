@@ -1,7 +1,7 @@
 import Dashboard
 import FastAPI
 import multiprocessing
-import api.api as api
+import api
 
 
 jobs = []

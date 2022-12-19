@@ -7,4 +7,4 @@ plotly
 pandas
 requests
 dash_bootstrap_components
-pickle==1.1.1
+scikit-learn

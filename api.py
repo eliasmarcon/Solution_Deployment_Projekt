@@ -2,10 +2,11 @@ import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel
 import pickle
+from sklearn import linear_model
 
 app = FastAPI()
 
-filename = '../lm_model.pkl'
+filename = './lm_model.pkl'
 
 # load the model from disk
 model = pickle.load(open(filename, 'rb'))
