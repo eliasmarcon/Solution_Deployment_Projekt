@@ -1,8 +1,17 @@
 import plotly.graph_objects as go
 import plotly.express as px
-import pandas as pd
-
 import utilities
+
+
+
+##############################################
+############## KPI Style Sheet #####ää########
+##############################################
+
+kpi_height = 300
+kpi_width = 300
+number_size = 60
+title_size = 15
 
 
 # filter multiple Sectors 
@@ -33,12 +42,14 @@ def getKPIDatensetgroeße(df, start_year, end_year, column, titlename):
 
     fig = go.Figure(go.Indicator(
                                     mode = "number+delta",
+                                    number = {"font": {"size": number_size}},
                                     value = len(df),
                                     domain = {'x': [0, 1], 'y': [0, 1]}
                             )
                     )
 
-    fig.update_layout(title = {'text' : "Anzahl an eindeutigen " + titlename + "!"}, paper_bgcolor = "lightgray")
+    fig.update_layout(title = {'text' : "Anzahl an eindeutigen <br> " + titlename + "!"}, height = kpi_height, width = kpi_width)
+    fig.update_layout(title = dict(font = dict(size = title_size)), title_x = 0.5)
 
     return fig
 
@@ -57,7 +68,7 @@ def getVorfälleYear(df, start_year, end_year):
         fig = go.Figure(go.Indicator(
                                         mode = "number+delta",
                                         value = len(df_year),
-                                        #number = {'prefix': "$"},
+                                        number = {"font": {"size": number_size}},
                                         delta = {'position': "bottom", 
                                                  'reference': length_year_before, 
                                                  'valueformat' : '.2%',
@@ -66,18 +77,21 @@ def getVorfälleYear(df, start_year, end_year):
                                     )
                         )
 
-        fig.update_layout(title = {'text' : "Lost Records innerhalb des Jahres!"}, paper_bgcolor = "lightgray")
+        fig.update_layout(title = {'text' : "Lost Records innerhalb des Jahres!"}, height = kpi_height, width = kpi_width)
 
     else:
 
         fig = go.Figure(go.Indicator(
                                         mode = "number+delta",
+                                        number = {"font": {"size": number_size}},
                                         value = len(df_year),
                                         domain = {'x': [0, 1], 'y': [0, 1]}
                                     )
                         )
 
-        fig.update_layout(title = {'text' : "Vorfälle innerhalb Lost Recordsdes gewählten Zeitraums!"}, paper_bgcolor = "lightgray")
+        fig.update_layout(title = {'text' : "Vorfälle innerhalb Lost Records <br> des gewählten Zeitraums!"}, height = kpi_height, width = kpi_width)
+
+    fig.update_layout(title = dict(font = dict(size = title_size)), title_x = 0.5)
 
     return fig
 
@@ -97,6 +111,7 @@ def getLostRecordsYear(df, start_year, end_year):
         fig = go.Figure(go.Indicator(
                                         mode = "number+delta",
                                         value = df_year['records_lost'].sum(),
+                                        number = {"font": {"size": number_size}},
                                         delta = {'position': "bottom", 
                                                  'reference': records_year_before,
                                                  'valueformat' : '.2%',
@@ -105,18 +120,21 @@ def getLostRecordsYear(df, start_year, end_year):
                                     )
                         )
 
-        fig.update_layout(title = {'text' : "Vorfälle innerhalb des Jahres!"}, paper_bgcolor = "lightgray")
+        fig.update_layout(title = {'text' : "Vorfälle innerhalb des Jahres!"}, height = kpi_height, width = kpi_width)
 
     else:
 
         fig = go.Figure(go.Indicator(
                                         mode = "number+delta",
+                                        number = {"font": {"size": number_size}},
                                         value = df_year['records_lost'].sum(),
                                         domain = {'x': [0, 1], 'y': [0, 1]}
                                     )
                         )
 
-        fig.update_layout(title = {'text' : "Vorfälle innerhalb des gewählten Zeitraums!"}, paper_bgcolor = "lightgray")
+        fig.update_layout(title = {'text' : "Vorfälle innerhalb <br> des gewählten Zeitraums!"}, height = kpi_height, width = kpi_width)
+
+    fig.update_layout(title = dict(font = dict(size = title_size)), title_x = 0.5)
 
     return fig
 

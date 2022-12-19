@@ -1,9 +1,5 @@
 import dash
 import dash_bootstrap_components as dbc
-import plotly.graph_objects as go
-import plotly.express as px
-import pandas as pd
-
 import utilities, utilitiespg2
 
 from dash import html
@@ -82,31 +78,27 @@ content = html.Div(
                 dbc.Col(
                     [
                         dcc.Graph(id = 'KPI_Fälle_Zeitperiode', figure = {})
-                    ], width = 6
+                    ], width = 3
                 ),
                 dbc.Col(
                     [
                         dcc.Graph(id = 'KPI_Lost_records', figure = {})
-                    ], width = 6
-                )
-            ]#, style = {"height": "10%"}
-        ),
-        dbc.Row(
-            [
+                    ], width = 3
+                ),
                 dbc.Col(
                     [
                         dcc.Graph(id = 'KPI_Datensetgroeße_organisationen', figure = {})
-                    ], width = 4
+                    ], width = 2
                 ),
                 dbc.Col(
                     [
                         dcc.Graph(id = 'KPI_Datensetgroeße_methoden', figure = {})
-                    ], width = 4
+                    ], width = 2
                 ),
                 dbc.Col(
                     [
                         dcc.Graph(id = 'KPI_Datensetgroeße_data_sensi', figure = {})
-                    ], width = 4
+                    ], width = 2
                 )
             ]
         ),

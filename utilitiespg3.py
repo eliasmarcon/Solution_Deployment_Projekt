@@ -1,13 +1,10 @@
 import plotly.graph_objects as go
 import plotly.express as px
 import pandas as pd
-
 import utilities
 
-from datetime import datetime
-from dash import html, callback
+from dash import html
 from dash import dcc
-from dash.dependencies import Input, Output
 
 ##############################################
 ############### Style Sectiopn ###############
@@ -104,7 +101,7 @@ def getStyleSection(df, togglevalue):
                         className = 'div-for-method-picker',
                         children = [ 
                             dcc.Dropdown(
-                                id = 'select-method-dependend', multi = togglevalue 
+                                id = 'select-method-dependend', multi = togglevalue
                                 #options = utilities.generate_options(df, 'method'), value = 'hacked', className = 'postselector'
                             )
                         ],
@@ -227,11 +224,12 @@ def getPieAnzahlLostRecords(df_temp, titlename):
 def getBarLostRecordsTime(df_temp, titlename):
 
     df_temp['date_2'] = pd.to_datetime(df_temp['date'])
-    # df_temp['date_2'] = df_temp['date_2'].dt.date
+    df_temp['date_2'] = df_temp['date_2'].dt.date
 
     # print(df_temp)
+    # print(df_temp.dtypes)
 
-    fig = px.bar(df_temp, x = "records_lost", y = "date_2", color = 'organisation', text = df_temp.records_lost)
+    fig = px.bar(df_temp, x = "records_lost", y = "year", color = 'organisation', text = df_temp.records_lost, orientation='h')
 
     if len(titlename) > 1:
         
@@ -241,7 +239,7 @@ def getBarLostRecordsTime(df_temp, titlename):
 
         fig.update_layout(title = {'text' : "Summe der Lost Records für " + str(titlename[0]) + "!"})
 
-    fig.update_traces(texttemplate='%{text:.2s}', textposition = 'outside', textfont_size = 12, textangle = 0)
+    fig.update_traces(texttemplate='%{text:.2s}', textposition = 'outside', textfont_size = 12, textangle = 0, width = 1)
     fig.update_xaxes(title = None)
     fig.update_yaxes(title = None)
 

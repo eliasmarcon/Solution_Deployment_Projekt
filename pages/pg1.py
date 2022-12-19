@@ -1,15 +1,9 @@
 import dash
 import dash_bootstrap_components as dbc
-import plotly.graph_objects as go
-import plotly.express as px
-import pandas as pd
-import dash_daq as daq
-
 import utilities, utilitiespg1
 
 from dash import html
-from dash import dcc, callback
-from dash.dependencies import Input, Output
+from dash import dcc
 
 
 # App Main

@@ -1,8 +1,6 @@
 import plotly.graph_objects as go
 import plotly.express as px
-import pandas as pd
 
-import utilities
 
 ##############################################
 ############# KPI Anzahl Column ##############
@@ -26,11 +24,11 @@ def getKPI(df, column):
 
     if column == "":
 
-        fig.update_layout(title = {'text' : "Anzahl an Vorfällen!"})
+        fig.update_layout(title = {'text' : "Anzahl an Vorfällen!"}, title_x = 0.5)
 
     else:
 
-        fig.update_layout(title = {'text' : "Anzahl an Organisationen!"})
+        fig.update_layout(title = {'text' : "Anzahl an Organisationen!"}, title_x = 0.5)
 
 
     return fig
@@ -51,7 +49,7 @@ def getKPIRecords(df):
                                 )
                     )
 
-    fig.update_layout(title = {'text' : "Summe an gestohlenen Daten!"})
+    fig.update_layout(title = {'text' : "Summe an gestohlenen Daten!"}, title_x = 0.5)
 
     return fig
 
@@ -76,7 +74,7 @@ def getKPIYear(df):
                                 )
                     )
 
-    fig.update_layout(title = {'text' : "Meisten gestohlenen Daten, Jahr {}!".format(str(year))})
+    fig.update_layout(title = {'text' : "Vergleich meisten gestohlenen Daten, <br> Jahr {}, im Vergleich zu 2022!".format(str(year))}, title_x = 0.5)
 
     return fig
 

@@ -1,8 +1,5 @@
 import dash
 import dash_bootstrap_components as dbc
-import plotly.graph_objects as go
-import plotly.express as px
-import pandas as pd
 import dash_daq as daq
 
 import utilities, utilitiespg3
@@ -93,17 +90,7 @@ content = html.Div(
                     ], width = 12
                 )
             ]
-        ),
-        # dbc.Row(
-        #     [
-        #         dbc.Col(
-        #             [
-        #                 dcc.Graph(id = 'Barchart_pro_Jahr_Sektor', figure = {})
-        #             ], width = 12
-        #         )
-                
-        #     ]
-        # )
+        )
     ]
 )
 
@@ -144,7 +131,7 @@ def update_output(value):
 # Auswahl für Method based on Organisation
 @callback(
     Output('select-method-dependend', 'options'),
-    Input('select-organisation', 'value'))
+    Input('select-organisation', 'value'), prevent_initial_call = True)
 def getAuswahlMethod(selected_country):
     
     if type(selected_country) == str:
@@ -161,7 +148,7 @@ def getAuswahlMethod(selected_country):
 @callback(
     Output('select-data-sensitivity-dependend', 'options'),
     Input('select-organisation', 'value'),
-    Input('select-method-dependend', 'value'))
+    Input('select-method-dependend', 'value'), prevent_initial_call = True)
 def getAuswahlDataSensitivity(selected_country, selected_method):
 
     if type(selected_country) == str:
@@ -169,12 +156,14 @@ def getAuswahlDataSensitivity(selected_country, selected_method):
         df2 = df[df['organisation'] == selected_country]
         labels = df2[df2['method'] == selected_method]['data_sensitivity_text'].unique()
 
+        return labels
+
     else:
 
         df2 = df[df['organisation'].isin(selected_country)]
         labels = df2[df2['method'].isin(selected_method)]['data_sensitivity_text'].unique()
 
-    return labels
+        return labels
 
 
 ######################################################################
@@ -189,7 +178,7 @@ def getAuswahlDataSensitivity(selected_country, selected_method):
     Input('select-organisation', 'value'),
     Input('select-method-dependend', 'value'),
     Input('select-data-sensitivity-dependend', 'value'),
-    Input('my-toggle-switch', 'on'))
+    Input('my-toggle-switch', 'on'), prevent_initial_call = True)
 def generateKPIAnzahlLostRecords(start_year : int, end_year : int, organisation, method, data_sensitivity, togglbutton):
 
     df_temp = utilitiespg3.getMultipleFilters(df, start_year, end_year, organisation, method, data_sensitivity, togglbutton)
@@ -205,7 +194,7 @@ def generateKPIAnzahlLostRecords(start_year : int, end_year : int, organisation,
     Input('select-organisation', 'value'),
     Input('select-method-dependend', 'value'),
     Input('select-data-sensitivity-dependend', 'value'),
-    Input('my-toggle-switch', 'on'))
+    Input('my-toggle-switch', 'on'), prevent_initial_call = True)
 def generatePieAnzahlLostRecords(start_year : int, end_year : int, organisation, method, data_sensitivity, togglbutton):
 
     df_temp = utilitiespg3.getMultipleFilters(df, start_year, end_year, organisation, method, data_sensitivity, togglbutton)
@@ -222,7 +211,7 @@ def generatePieAnzahlLostRecords(start_year : int, end_year : int, organisation,
     Input('select-organisation', 'value'),
     Input('select-method-dependend', 'value'),
     Input('select-data-sensitivity-dependend', 'value'),
-    Input('my-toggle-switch', 'on'))
+    Input('my-toggle-switch', 'on'), prevent_initial_call = True)
 def generateBarLostRecordsTime(start_year : int, end_year : int, organisation, method, data_sensitivity, togglbutton):
 
     df_temp = utilitiespg3.getMultipleFilters(df, start_year, end_year, organisation, method, data_sensitivity, togglbutton)

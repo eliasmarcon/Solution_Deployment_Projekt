@@ -1,10 +1,10 @@
 import dash
 import dash_bootstrap_components as dbc
-from dash import html, dcc
+from dash import html
 
 
 # App Main
-app = dash.Dash(__name__, use_pages = True, external_stylesheets = [dbc.themes.SPACELAB])
+app = dash.Dash(__name__, use_pages = True, external_stylesheets = [dbc.themes.SPACELAB], suppress_callback_exceptions = True)
 
 
 sidebar = dbc.Nav(
