@@ -7,3 +7,4 @@ plotly
 pandas
 requests
 dash_bootstrap_components
+scikit-learn

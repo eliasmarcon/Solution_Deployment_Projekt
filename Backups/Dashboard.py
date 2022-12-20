@@ -9,7 +9,7 @@ from dash import html
 from dash import dcc
 from dash.dependencies import Input, Output, State
 from datetime import datetime, timedelta
-from bs4 import BeautifulSoup
+# from bs4 import BeautifulSoup
 
 
 # App Main
@@ -31,12 +31,12 @@ CONTENT_STYLE = {
 def load_data():
     
     # scrape covid data
-    ds_url = 'https://www.data.gv.at/katalog/dataset/846448a5-a26e-4297-ac08-ad7040af20f1'
-    page = requests.get(ds_url).text
-    soup = BeautifulSoup(page, 'html.parser')
-    file_url = soup.find('a', class_='resource-url-analytics').get('href')
+    # ds_url = 'https://www.data.gv.at/katalog/dataset/846448a5-a26e-4297-ac08-ad7040af20f1'
+    # page = requests.get(ds_url).text
+    # soup = BeautifulSoup(page, 'html.parser')
+    # file_url = soup.find('a', class_='resource-url-analytics').get('href')
     
-    df = pd.read_csv(file_url, sep = ";")
+    df = pd.read_csv("https://covid19-dashboard.ages.at/data/Hospitalisierung.csv", sep = ";")
     df['Meldedatum'] = pd.to_datetime(df['Meldedatum'], format = '%d.%m.%Y %H:%M:%S')
     # df['Meldedatum'] = pd.to_datetime(df['Meldedatum'], format = '%d.%m.%Y %H:%M:%S').dt.date
     
