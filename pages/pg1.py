@@ -45,6 +45,20 @@ content = html.Div(
                 dbc.Col(
                     [
                         dcc.Graph(id = 'Pie_Sektoren', figure = utilitiespg1.getPie(df, 'sector_1', 'Sektoren'))
+                    ], width = 4
+                ),
+                dbc.Col(
+                    [
+                        dcc.Graph(id = 'Bar_Sektoren', figure = utilitiespg1.getBar(df, 'sector_1', 'Sektoren'))
+                    ], width = 8
+                ),
+            ]
+        ),
+        dbc.Row(
+            [
+                dbc.Col(
+                    [
+                        dcc.Graph(id = 'Bar_Sektoren_2', figure = utilitiespg1.getBar(df, 'sector_1', 'Sektoren', True))
                     ], width = 12
                 )
             ]
@@ -87,6 +101,20 @@ content = html.Div(
                 dbc.Col(
                     [
                         dcc.Graph(id = 'Barchart_Summe_Jahr', figure = utilitiespg1.getBarTime(df, True))
+                    ], width = 6
+                )
+            ]
+        ),
+        dbc.Row(
+            [
+                dbc.Col(
+                    [
+                        dcc.Graph(id = 'Linechart_Anzahl_Jahr', figure = utilitiespg1.getLineTime(df))
+                    ], width = 6
+                ),
+                dbc.Col(
+                    [
+                        dcc.Graph(id = 'Linechart_Summe_Jahr', figure = utilitiespg1.getLineTime(df, True))
                     ], width = 6
                 )
             ]

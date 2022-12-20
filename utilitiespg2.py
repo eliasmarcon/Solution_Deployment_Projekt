@@ -152,7 +152,7 @@ def getBarchartProJahr(df, start_year, end_year):
 
     fig = px.bar(df, x = 'year', y = 'records_lost', color = 'year', text = ['{:.2} Mrd'.format(x / 1000000000) for x in df['records_lost']])
     fig.update_traces(textposition = 'outside', textfont_size = 12, textangle = 0)
-    fig.update_layout(title = {'text' : "Verteilung der records_lost innerhalb des ausgewählten Zeitraums!"})
+    fig.update_layout(title = {'text' : "Verteilung der records_lost innerhalb des ausgewählten Zeitraums!"}, yaxis_range = [0, max(df.records_lost) * 1.1])
 
     return fig
 
@@ -168,7 +168,7 @@ def getBarchartProJahrSektor(df, start_year, end_year):
 
     fig = px.bar(df, x = 'year', y = 'records_lost', color = 'sector_1', text = ['{:.2} Mrd'.format(x / 1000000000) for x in df['records_lost']])
     fig.update_traces(textposition = 'outside', textfont_size = 12, textangle = 0)
-    fig.update_layout(title = {'text' : "Verteilung der records_lost innerhalb des ausgewählten Zeitraums!"})
+    fig.update_layout(title = {'text' : "Verteilung der records_lost innerhalb des ausgewählten Zeitraums!"}, yaxis_range = [0, max(df.records_lost) * 1.1])
 
     return fig
 

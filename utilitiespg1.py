@@ -97,6 +97,35 @@ def getPie(df, column, title):
 
 
 ##############################################
+############# Bar Anzahl Column ##############
+##############################################
+def getBar(df, column, title, boolean = False):
+
+    df = df.groupby(column).size().reset_index(name = 'anzahl')
+    df['percentage'] = round((df.anzahl / df.anzahl.sum()) * 100, 2)
+    df['dummy_variable'] = 'A'
+
+    df = df.sort_values(by = ['percentage'], ascending = False)
+
+    if boolean:
+
+        fig = px.bar(df, x = "percentage", y = 'dummy_variable', color = column, orientation = 'h', barmode = 'stack', text = df['percentage'].apply(lambda x: '{0:1.2f}%'.format(x)))
+        fig.update_yaxes(visible = False)
+        fig.update_traces(insidetextanchor = "middle", width = 0.3)
+
+
+    else:
+
+        fig = px.bar(df, x = "percentage", y = df[column], color = column, orientation = 'h', text = df['percentage'].apply(lambda x: '{0:1.2f}%'.format(x)))
+
+    fig.update_traces(textposition = 'inside', textfont_size = 12, textangle = 0)
+    # fig.update_layout(legend_title_text = 'Unternehmen')
+    
+    return fig
+
+
+
+##############################################
 ##### Barchart Anzahl und Summe pro Jahr #####
 ##############################################
 def getBarTime(df, summe = False):
@@ -114,12 +143,49 @@ def getBarTime(df, summe = False):
     if summe:
         
         fig.update_layout(title = {'text' : "Summe an gestohlenen Daten im jeweiligen Jahr!"})
+        fig.update_traces(texttemplate = '%{text:.2s}')
+
+    else:
+
+        fig.update_layout(title = {'text' : "Anzahl an Data breaches im jeweiligen Jahr!"})
+        fig.update_traces(texttemplate = '%{text:.0s}')
+
+    fig.update_layout(yaxis_range = [0, max(df.anzahl) * 1.1])
+    fig.update_traces(textposition = 'outside', textfont_size = 12, textangle = 0)
+    fig.update_xaxes(title = None)
+    fig.update_yaxes(title = None)
+    
+    return fig
+
+
+
+##############################################
+##### Linechart Anzahl und Summe pro Jahr ####
+##############################################
+def getLineTime(df, summe = False):
+
+    if summe:
+
+        df = df.groupby('year')['records_lost'].sum().reset_index(name = 'anzahl')
+
+    else:
+    
+        df = df.groupby('year')['year'].size().reset_index(name = 'anzahl')
+
+    fig = px.line(df, x = "year", y = "anzahl", text = df.anzahl, markers = True)
+
+    # print(df)
+
+    if summe:
+        
+        fig.update_layout(title = {'text' : "Summe an gestohlenen Daten im jeweiligen Jahr!"})
+        fig.update_traces(texttemplate = '%{text:.2s}')
 
     else:
 
         fig.update_layout(title = {'text' : "Anzahl an Data breaches im jeweiligen Jahr!"})
 
-    fig.update_traces(texttemplate = '%{text:.2s}', textposition = 'outside', textfont_size = 12, textangle = 0)
+    fig.update_traces(textposition = "top center", textfont_size = 12)
     fig.update_xaxes(title = None)
     fig.update_yaxes(title = None)
     
@@ -152,13 +218,14 @@ def getBarUnternehmen(df, summe = False):
     if summe:
         
         fig.update_layout(title = {'text' : "Summe an gestohlenen Daten im jeweiligen Unternehmen! (top 8)"})
+        fig.update_traces(texttemplate = '%{text:.2s}')
 
     else:
 
         fig.update_layout(title = {'text' : "Anzahl an Data breaches im jeweiligen Unternehmen! (top 8)"})
 
-    fig.update_traces(texttemplate = '%{text:.2s}', textposition = 'outside', textfont_size = 12, textangle = 0)
-    fig.update_layout(legend_title_text = 'Unternehmen')
+    fig.update_traces(textposition = 'outside', textfont_size = 12, textangle = 0)
+    fig.update_layout(legend_title_text = 'Unternehmen', yaxis_range = [0, max(df.anzahl) * 1.1])
     fig.update_xaxes(title = None)
     fig.update_yaxes(title = None)
     
@@ -167,7 +234,7 @@ def getBarUnternehmen(df, summe = False):
 
 
 ##############################################
-# Barchart Anzahl und Summe pro Sektor ##
+#### Barchart Anzahl und Summe pro Sektor ####
 ##############################################
 def getBarSektor(df, summe = False):
 
@@ -191,13 +258,14 @@ def getBarSektor(df, summe = False):
     if summe:
         
         fig.update_layout(title = {'text' : "Summe an gestohlenen Daten im jeweiligen Sektor! (top 8)"})
+        fig.update_traces(texttemplate = '%{text:.2s}')
 
     else:
 
         fig.update_layout(title = {'text' : "Anzahl an Data breaches im jeweiligen Sektor! (top 8)"})
 
-    fig.update_traces(texttemplate = '%{text:.2s}', textposition = 'outside', textfont_size = 12, textangle = 0)
-    fig.update_layout(legend_title_text = 'Sektor')
+    fig.update_traces(textposition = 'outside', textfont_size = 12, textangle = 0)
+    fig.update_layout(legend_title_text = 'Sektor', yaxis_range = [0, max(df.anzahl) * 1.1])
     fig.update_xaxes(title = None)
     fig.update_yaxes(title = None)
     
@@ -206,7 +274,7 @@ def getBarSektor(df, summe = False):
 
 
 ##############################################
-# Barchart Anzahl und Summe pro Sektor ##
+#### Barchart Anzahl und Summe pro Sektor ####
 ##############################################
 def getBarMethodeSensitive(df, column, title):
     
@@ -219,8 +287,8 @@ def getBarMethodeSensitive(df, column, title):
     fig = px.bar(df, x = df[column], y = "anzahl", color = df[column], text = "anzahl")
         
     fig.update_layout(title = {'text' : "Summe an gestohlenen Daten nach {}!".format(title)})
-    fig.update_layout(legend = dict(orientation = "h"), title_x = 0.5, legend_title_text = title)
-    fig.update_traces(texttemplate = '%{text:.2s}', textposition = 'outside', textfont_size = 12, textangle = 0)
+    fig.update_layout(legend = dict(orientation = "h"), title_x = 0.5, legend_title_text = title, yaxis_range = [0, max(df.anzahl) * 1.1])
+    fig.update_traces(texttemplate = '%{text:.2s}', textposition = 'outside', textfont_size = 12, textangle = 0, cliponaxis = False)
     fig.update_xaxes(visible=False)
     fig.update_yaxes(title = None)
     
