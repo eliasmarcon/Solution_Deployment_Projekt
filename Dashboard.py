@@ -64,13 +64,13 @@ app.layout = dbc.Container(
 
 # Run the app
 def start():    
-    # app.run_server(host = '0.0.0.0', port = 80)
+    app.run_server(host = '0.0.0.0', port = 80)
     return 'Done!'
 
 if __name__ == '__main__':
-    # start()
+    start()
     #app.run_server(host = '0.0.0.0', port = 80)
-    app.run_server(debug = True, port = "8051")
+    #app.run_server(debug = True, port = "8051")
 
 
 
