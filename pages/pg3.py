@@ -1,21 +1,19 @@
 import dash
-import dash_bootstrap_components as dbc
-import dash_daq as daq
-
-import utilities, utilitiespg3
-
 from dash import html
 from dash import dcc, callback
 from dash.dependencies import Input, Output
-
+import dash_bootstrap_components as dbc
+import dash_daq as daq
+from dash_bootstrap_templates import load_figure_template
+import requests
+import utilities, utilitiespg3
 
 # App Main
-dash.register_page(__name__, name = 'Organisation Analysis')
-
+dash.register_page(__name__, name = 'Organizations', external_stylesheets = [dbc.themes.LUX])
+load_figure_template("LUX")
 
 # Load Dataset
 df = utilities.loadData()
-
 
 ######################################################################
 ######################### Style Section ##############################
@@ -24,7 +22,7 @@ df = utilities.loadData()
 # Create Slidebar
 sidebar = html.Div(
     [
-        html.H6('Activate Button to include multiple selection'),
+        html.H6('Enable multiple selection'),
         html.Div( 
             className = 'div-user-controls',
             children= [
@@ -50,12 +48,24 @@ sidebar = html.Div(
                     className = 'div-for-date-picker',
                     children = [ 
 
-                        html.P('Drücken Sie den Button um eine Prediction zu erhalten!', style = {'textAlign': 'justify'}),
+                        html.P('Predict the count of breaches for specific year.', style = {'textAlign': 'justify'}),
                         # html.P('Ausgewählte Zeitperiode in Tagen: ' + str(len(df))),
                         html.Div(id = "zeitraum_id"),
                         html.Div(id = "bundesland_id"),
                         # html.Br(),
-                        dbc.Button(id = 'API_Button', children = 'Calculate with API'),
+                        dcc.Input(
+                            id="input_number",
+                            type="number",
+                            value='2025',
+                            placeholder="input type number",
+                            style={'width': '100%', 'height': 25}
+                        ),
+                        dcc.Input(
+                            id='textarea',
+                            value='',
+                            style={'width': '100%', 'height': 25},
+                        ),
+                        dbc.Button(id = 'API_Button', children = 'Calculate with API', style={'width': '100%'}),
                         html.Hr(),
                         html.Div(id = "API_Call")
                     ],
@@ -218,3 +228,18 @@ def generateBarLostRecordsTime(start_year : int, end_year : int, organisation, m
     fig = utilitiespg3.getBarLostRecordsTime(df_temp, df_temp.organisation.unique())
 
     return fig
+
+
+@callback(
+    Output('textarea', 'value'),
+    Input('input_number', 'value'), prevent_initial_call = True)
+def useApi(number: int):
+    headers = {
+        'accept': 'application/json',
+        'content-type': 'application/x-www-form-urlencoded',
+    }
+    params = {
+        'number': number,
+    }
+    response = requests.post('http://0.0.0.0:8001/predict', params=params, headers=headers)
+    return response.text

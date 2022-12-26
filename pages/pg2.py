@@ -1,5 +1,6 @@
 import dash
 import dash_bootstrap_components as dbc
+from dash_bootstrap_templates import load_figure_template
 import utilities, utilitiespg2
 
 from dash import html
@@ -8,7 +9,8 @@ from dash.dependencies import Input, Output
 
 
 # App Main
-dash.register_page(__name__, name = 'Sektor Seite')
+dash.register_page(__name__, name = 'Sectors')
+load_figure_template("LUX")
 
 
 # Load Dataset
@@ -22,7 +24,7 @@ df = utilities.loadData()
 # Create Slidebar
 sidebar = html.Div(
     [
-        html.H6('Select Year of your choice.'),
+        html.H6('Choose period.'),
         html.Div( 
             className = 'div-user-controls',
             children= [
@@ -50,7 +52,7 @@ sidebar = html.Div(
         ),
         html.Hr(),
 
-        html.H6('Select Sector of your choice.'),
+        html.H6('Choose sector(s).'),
         html.Div( 
             className = 'div-user-controls',
             children= [
@@ -106,42 +108,18 @@ content = html.Div(
             [
                 dbc.Col(
                     [
-                        dcc.Graph(id = 'Barchart_pro_Jahr', figure = {})
-                    ], width = 12
-                )
-            ]
-        ),
-        dbc.Row(
-            [
-                dbc.Col(
-                    [
                         dcc.Graph(id = 'Barchart_pro_Jahr_Sektor', figure = {})
-                    ], width = 12
-                )
-                
-            ]
-        ),
-        dbc.Row(
-            [
-                dbc.Col(
-                    [
-                        dcc.Graph(id = 'Barchart_meisten_Leaks', figure = {})
-                    ], width = 12
-                )
-                
-            ]
-        ),
-        dbc.Row(
-            [
+                    ], width = 8
+                ),
                 dbc.Col(
                     [
                         dcc.Graph(id = 'Pie_Methoden', figure = {})
-                    ], width = 6
+                    ], width = 2
                 ),
                 dbc.Col(
                     [
                         dcc.Graph(id = 'Pie_Data_Sensitivity', figure = {})
-                    ], width = 6
+                    ], width = 2
                 )
                 
             ]
@@ -193,7 +171,7 @@ layout = html.Div([
 def generateKPIDatensetgroeßeOrganisation(start_year : int, end_year : int, sector):
 
     df_temp = utilitiespg2.getMultipleSectors(df, sector)
-    fig = utilitiespg2.getKPIDatensetgroeße(df_temp, start_year, end_year, 'organisation', 'Organisationen')
+    fig = utilitiespg2.getKPIDatensetgroeße(df_temp, start_year, end_year, 'organisation', 'organizations')
 
     return fig
 
@@ -207,7 +185,7 @@ def generateKPIDatensetgroeßeOrganisation(start_year : int, end_year : int, sec
 def generateKPIDatensetgroeßeMethod(start_year : int, end_year : int, sector):
 
     df_temp = utilitiespg2.getMultipleSectors(df, sector)
-    fig = utilitiespg2.getKPIDatensetgroeße(df_temp, start_year, end_year, 'method', 'Methoden')
+    fig = utilitiespg2.getKPIDatensetgroeße(df_temp, start_year, end_year, 'method', 'methods')
 
     return fig
 
@@ -221,7 +199,7 @@ def generateKPIDatensetgroeßeMethod(start_year : int, end_year : int, sector):
 def generateKPIDatensetgroeßeDataSensitivity(start_year : int, end_year : int, sector):
 
     df_temp = utilitiespg2.getMultipleSectors(df, sector)
-    fig = utilitiespg2.getKPIDatensetgroeße(df_temp, start_year, end_year, 'data_sensitivity', 'Data Senistivity')
+    fig = utilitiespg2.getKPIDatensetgroeße(df_temp, start_year, end_year, 'data_sensitivity', 'data sensitivity types')
 
     return fig
 
@@ -302,7 +280,7 @@ def generateBarchartLeaksUnternehmen(start_year : int, end_year : int):
 def generatePieMethoden(start_year : int, end_year : int, sector):
     
     df_temp = utilitiespg2.getMultipleSectors(df, sector)
-    fig = utilitiespg2.getPieChart(df_temp, start_year, end_year, 'method', 'Methoden')
+    fig = utilitiespg2.getPieChart(df_temp, start_year, end_year, 'method', 'Method')
     
     return fig
 
@@ -316,6 +294,6 @@ def generatePieMethoden(start_year : int, end_year : int, sector):
 def generatePieMethoden(start_year : int, end_year : int, sector):
     
     df_temp = utilitiespg2.getMultipleSectors(df, sector)
-    fig = utilitiespg2.getPieChart(df_temp, start_year, end_year, 'data_sensitivity_text', 'Data Sensitivity')
+    fig = utilitiespg2.getPieChart(df_temp, start_year, end_year, 'data_sensitivity_text', 'Data sensitivity')
 
     return fig

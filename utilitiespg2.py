@@ -8,10 +8,11 @@ import utilities
 ############## KPI Style Sheet #####ää########
 ##############################################
 
-kpi_height = 300
-kpi_width = 300
-number_size = 60
+kpi_height = 200
 title_size = 15
+number_size = 40
+chart_height = 400
+
 
 
 # filter multiple Sectors 
@@ -48,7 +49,7 @@ def getKPIDatensetgroeße(df, start_year, end_year, column, titlename):
                             )
                     )
 
-    fig.update_layout(title = {'text' : "Anzahl an eindeutigen <br> " + titlename + "!"}, height = kpi_height, width = kpi_width)
+    fig.update_layout(title = {'text' : "Unique <br> " + titlename}, height = kpi_height)
     fig.update_layout(title = dict(font = dict(size = title_size)), title_x = 0.5)
 
     return fig
@@ -77,7 +78,7 @@ def getVorfälleYear(df, start_year, end_year):
                                     )
                         )
 
-        fig.update_layout(title = {'text' : "Lost Records innerhalb des Jahres!"}, height = kpi_height, width = kpi_width)
+        fig.update_layout(title = {'text' : "Lost Records innerhalb des Jahres!"}, height = kpi_height)
 
     else:
 
@@ -89,7 +90,7 @@ def getVorfälleYear(df, start_year, end_year):
                                     )
                         )
 
-        fig.update_layout(title = {'text' : "Vorfälle innerhalb Lost Records <br> des gewählten Zeitraums!"}, height = kpi_height, width = kpi_width)
+        fig.update_layout(title = {'text' : "Count of breaches<br>in selected period"}, height = kpi_height)
 
     fig.update_layout(title = dict(font = dict(size = title_size)), title_x = 0.5)
 
@@ -120,7 +121,7 @@ def getLostRecordsYear(df, start_year, end_year):
                                     )
                         )
 
-        fig.update_layout(title = {'text' : "Vorfälle innerhalb des Jahres!"}, height = kpi_height, width = kpi_width)
+        fig.update_layout(title = {'text' : "Vorfälle innerhalb des Jahres!"}, height = kpi_height)
 
     else:
 
@@ -132,7 +133,7 @@ def getLostRecordsYear(df, start_year, end_year):
                                     )
                         )
 
-        fig.update_layout(title = {'text' : "Vorfälle innerhalb <br> des gewählten Zeitraums!"}, height = kpi_height, width = kpi_width)
+        fig.update_layout(title = {'text' : "Sum of stolen data<br>in selected period"}, showlegend=False, title_x = 0.5, height = kpi_height)
 
     fig.update_layout(title = dict(font = dict(size = title_size)), title_x = 0.5)
 
@@ -150,9 +151,9 @@ def getBarchartProJahr(df, start_year, end_year):
 
     # print(df.dtypes)
 
-    fig = px.bar(df, x = 'year', y = 'records_lost', color = 'year', text = ['{:.2} Mrd'.format(x / 1000000000) for x in df['records_lost']])
+    fig = px.bar(df, x = 'year', y = 'records_lost', text = ['{:.2} Mrd'.format(x / 1000000000) for x in df['records_lost']])
     fig.update_traces(textposition = 'outside', textfont_size = 12, textangle = 0)
-    fig.update_layout(title = {'text' : "Verteilung der records_lost innerhalb des ausgewählten Zeitraums!"}, yaxis_range = [0, max(df.records_lost) * 1.1])
+    fig.update_layout(title = {'text' : "Sum of stolen data in selected period"}, yaxis_range = [0, max(df.records_lost) * 1.1], showlegend=False, title_x = 0.5)
 
     return fig
 
@@ -166,10 +167,10 @@ def getBarchartProJahrSektor(df, start_year, end_year):
     df_year = utilities.checkYear(df, start_year, end_year)
     df = df_year.groupby(['year', 'sector_1']).sum().reset_index().sort_values(by = ['year'])
 
-    fig = px.bar(df, x = 'year', y = 'records_lost', color = 'sector_1', text = ['{:.2} Mrd'.format(x / 1000000000) for x in df['records_lost']])
+    fig = px.bar(df, x = 'year', y = 'records_lost', color = 'sector_1', text = ['{:.2} Mrd'.format(x / 1000000000) for x in df['records_lost']], height=chart_height)
     fig.update_traces(textposition = 'outside', textfont_size = 12, textangle = 0)
-    fig.update_layout(title = {'text' : "Verteilung der records_lost innerhalb des ausgewählten Zeitraums!"}, yaxis_range = [0, max(df.records_lost) * 1.1])
-
+    fig.update_layout(title = {'text' : "Sum of stolen data by sector in selected period"}, yaxis_range = [0, max(df.records_lost) * 1.2], title_x = 0.5, legend_title_text = '')
+    fig.update_yaxes(title = None)
     return fig
 
 
@@ -184,10 +185,10 @@ def getBarchartLeaksUnternehmen(df, start_year, end_year):
     df = df_year.groupby(['organisation']).sum().reset_index().sort_values(by = ['records_lost'])
     df = df[-10:]
 
-    fig = px.bar(df, x = "organisation", y = 'records_lost', color = "organisation", text = ['{:.2} Mrd'.format(x / 1000000000) for x in df['records_lost']])
+    fig = px.bar(df, x = "organisation", y = 'records_lost', color = "organisation", text = ['{:.2} Mrd'.format(x / 1000000000) for x in df['records_lost']], height=chart_height)
     fig.update_traces(textposition = 'inside', textfont_size = 12, textangle = 0)
-    fig.update_layout(title = {'text' : "Unternehmen sortiert nach den insgesamten Leaks innerhalb der Zeitperiode!"})
-
+    fig.update_layout(title = {'text' : "Sum of stolen data<br>in selected period"}, showlegend=False, title_x = 0.5, xaxis_showticklabels=False)
+    fig.update_yaxes(title = None)
     return fig
 
 
@@ -199,9 +200,9 @@ def getPieChart(df, start_year, end_year, column, titlename):
 
     df_year = utilities.checkYear(df, start_year, end_year)
     df = df_year.groupby(column).size().reset_index(name = 'anzahl')
-    fig = px.pie(df, values = df.anzahl, names = df[column], hole = .7)
+    fig = px.pie(df, values = df.anzahl, names = df[column], hole = .7, height=chart_height)
 
-    fig.update_layout(legend = dict(orientation = "h"), title_text = 'Verteilung von ' + titlename + "!", title_x=0.5)
+    fig.update_layout(legend = dict(orientation = "h"), title_text = titlename + "<br>distribution", title_x=0.5)
 
     return fig
 

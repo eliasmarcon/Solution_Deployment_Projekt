@@ -1,11 +1,16 @@
 import dash
 import dash_bootstrap_components as dbc
+from dash_bootstrap_templates import load_figure_template
 from dash import html
 
-
 # App Main
-app = dash.Dash(__name__, use_pages = True, external_stylesheets = [dbc.themes.SPACELAB], suppress_callback_exceptions = True)
+app = dash.Dash(__name__, use_pages = True, external_stylesheets = [dbc.themes.LUX],
+                suppress_callback_exceptions = True)
 
+load_figure_template("LUX")
+
+# enable assets/customs.css
+app.css.config.serve_locally = True
 
 sidebar = dbc.Nav(
                     [
@@ -30,8 +35,8 @@ app.layout = dbc.Container(
                 html.Div(
                             className='div-for-text',
                             children=[
-                                html.H1("Worlds biggest Data Breaches & Hacks", style={'fontSize': 35, 'textAlign' : 'center'}), 
-                                html.P('''A basic Dashboard with Dash and Plotly, showing the worlds biggest data breaches.''', style={'fontSize': 20, 'textAlign' : 'center'})
+                                html.H1('Worlds biggest Data Breaches & Hacks', style={'fontSize': 35, 'textAlign' : 'center'}), 
+                                html.P('A basic Dashboard with Dash and Plotly.', style={'fontSize': 20, 'textAlign' : 'center'})
                             ]
                         )
             )
@@ -65,13 +70,12 @@ app.layout = dbc.Container(
 # Run the app
 def start():   
 
-    app.run_server(host = '0.0.0.0', port = 80)
+    app.run_server(host = '0.0.0.0', port = 80, debug=True)
     return 'Done!'
 
 if __name__ == '__main__':
 
     start()
-    # app.run_server(debug = True, port = "8051")
 
 
 

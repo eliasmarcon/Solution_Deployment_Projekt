@@ -1,14 +1,13 @@
 import dash
-import dash_bootstrap_components as dbc
-import utilities, utilitiespg1
-
 from dash import html
 from dash import dcc
-
+import dash_bootstrap_components as dbc
+from dash_bootstrap_templates import load_figure_template
+import utilities, utilitiespg1
 
 # App Main
-dash.register_page(__name__, path = '/', name = 'Home')
-
+dash.register_page(__name__, path = '/', name = 'Home', external_stylesheets = [dbc.themes.LUX])
+load_figure_template("LUX")
 
 # Load Dataset
 df = utilities.loadData()
@@ -25,12 +24,12 @@ content = html.Div(
                 ),
                 dbc.Col(
                     [
-                        dcc.Graph(id = 'KPI_Unternehmen', figure = utilitiespg1.getKPI(df, 'organisation'))
+                        dcc.Graph(id = 'KPI_Summe_Records', figure = utilitiespg1.getKPIRecords(df))
                     ], width = 3
                 ),
                 dbc.Col(
                     [
-                        dcc.Graph(id = 'KPI_Summe_Records', figure = utilitiespg1.getKPIRecords(df))
+                        dcc.Graph(id = 'KPI_Unternehmen', figure = utilitiespg1.getKPI(df, 'organisation'))
                     ], width = 3
                 ),
                 dbc.Col(
@@ -38,41 +37,23 @@ content = html.Div(
                         dcc.Graph(id = 'KPI_Year_High', figure = utilitiespg1.getKPIYear(df))
                     ], width = 3
                 )
-            ]#, style = {"height": "10%"}
+            ],
         ),
         dbc.Row(
             [
                 dbc.Col(
                     [
-                        dcc.Graph(id = 'Pie_Sektoren', figure = utilitiespg1.getPie(df, 'sector_1', 'Sektoren'))
-                    ], width = 4
+                        dcc.Graph(id = 'Barchart_Anzahl_Sektor', figure = utilitiespg1.getBarSektor(df))
+                    ], width = 3
                 ),
                 dbc.Col(
                     [
-                        dcc.Graph(id = 'Bar_Sektoren', figure = utilitiespg1.getBar(df, 'sector_1', 'Sektoren'))
-                    ], width = 8
-                ),
-            ]
-        ),
-        dbc.Row(
-            [
-                dbc.Col(
-                    [
-                        dcc.Graph(id = 'Bar_Sektoren_2', figure = utilitiespg1.getBar(df, 'sector_1', 'Sektoren', True))
-                    ], width = 12
-                )
-            ]
-        ),
-        dbc.Row(
-            [
-                dbc.Col(
-                    [
-                        dcc.Graph(id = 'Pie_Methoden', figure = utilitiespg1.getPie(df, 'method', 'Methoden'))
-                    ], width = 6
+                        dcc.Graph(id = 'Barchart_Summe_Sektor', figure = utilitiespg1.getBarSektor(df, True))
+                    ], width = 3
                 ),
                 dbc.Col(
                     [
-                        dcc.Graph(id = 'Pie_Methoden_Summe', figure = utilitiespg1.getBarMethodeSensitive(df, 'method', 'Methoden'))
+                        dcc.Graph(id = 'Bar_Sektoren_2', figure = utilitiespg1.getBar(df, 'sector_1', 'Sector', True))
                     ], width = 6
                 )
             ]
@@ -81,12 +62,36 @@ content = html.Div(
             [
                 dbc.Col(
                     [
-                        dcc.Graph(id = 'Pie_Data_Sensitivity', figure = utilitiespg1.getPie(df, 'data_sensitivity_text', 'Data Sensitivity'))
-                    ], width = 6
+                        dcc.Graph(id = 'Barchart_Anzahl_Method', figure = utilitiespg1.getBarMethod(df))
+                    ], width = 3
                 ),
                 dbc.Col(
                     [
-                        dcc.Graph(id = 'Pie_Data_Sensitivity_Summe', figure = utilitiespg1.getBarMethodeSensitive(df, 'data_sensitivity_text', 'Data Sensitivity'))
+                        dcc.Graph(id = 'Barchart_Summe_Method', figure = utilitiespg1.getBarMethod(df, True))
+                    ], width = 3
+                ),
+                dbc.Col(
+                    [
+                        dcc.Graph(id = 'Bar_Method_2', figure = utilitiespg1.getBar(df, 'method', 'Method', True))
+                    ], width = 6
+                )
+            ]
+        ),
+        dbc.Row(
+            [
+                dbc.Col(
+                    [
+                        dcc.Graph(id = 'Barchart_Anzahl_Sensitivity', figure = utilitiespg1.getBarDataSensitivity(df))
+                    ], width = 3
+                ),
+                dbc.Col(
+                    [
+                        dcc.Graph(id = 'Barchart_Summe_Sensitivity', figure = utilitiespg1.getBarDataSensitivity(df, True))
+                    ], width = 3
+                ),
+                dbc.Col(
+                    [
+                        dcc.Graph(id = 'Bar_sensitivity_2', figure = utilitiespg1.getBar(df, 'data_sensitivity_text', 'Data sensivity', True))
                     ], width = 6
                 )
             ]
@@ -100,49 +105,7 @@ content = html.Div(
                 ),
                 dbc.Col(
                     [
-                        dcc.Graph(id = 'Barchart_Summe_Jahr', figure = utilitiespg1.getBarTime(df, True))
-                    ], width = 6
-                )
-            ]
-        ),
-        dbc.Row(
-            [
-                dbc.Col(
-                    [
-                        dcc.Graph(id = 'Linechart_Anzahl_Jahr', figure = utilitiespg1.getLineTime(df))
-                    ], width = 6
-                ),
-                dbc.Col(
-                    [
                         dcc.Graph(id = 'Linechart_Summe_Jahr', figure = utilitiespg1.getLineTime(df, True))
-                    ], width = 6
-                )
-            ]
-        ),
-        dbc.Row(
-            [
-                dbc.Col(
-                    [
-                        dcc.Graph(id = 'Barchart_Anzahl_Unternehmen', figure = utilitiespg1.getBarUnternehmen(df))
-                    ], width = 6
-                ),
-                dbc.Col(
-                    [
-                        dcc.Graph(id = 'Barchart_Summe_Unternehmen', figure = utilitiespg1.getBarUnternehmen(df, True))
-                    ], width = 6
-                )
-            ]
-        ),
-        dbc.Row(
-            [
-                dbc.Col(
-                    [
-                        dcc.Graph(id = 'Barchart_Anzahl_Sektor', figure = utilitiespg1.getBarSektor(df))
-                    ], width = 6
-                ),
-                dbc.Col(
-                    [
-                        dcc.Graph(id = 'Barchart_Summe_Sektor', figure = utilitiespg1.getBarSektor(df, True))
                     ], width = 6
                 )
             ]

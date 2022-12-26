@@ -6,12 +6,18 @@ import utilities
 from dash import html
 from dash import dcc
 
+kpi_height = 200
+title_size = 15
+number_size = 40
+chart_height = 400
+
+
 ##############################################
 ############### Style Sectiopn ###############
 ##############################################
 def getStyleSection(df, togglevalue):
 
-    style = [html.H6('Select organisation of your choice.'),
+    style = [html.H6('Choose organization.'),
             html.Div( 
                 className ='div-user-controls',
                 children= [
@@ -28,7 +34,7 @@ def getStyleSection(df, togglevalue):
             ),
             html.Hr(),
 
-            html.H6('Select Year of your choice.'),
+            html.H6('Choose period.'),
             html.Div( 
                 className = 'div-user-controls',
                 children= [
@@ -93,7 +99,7 @@ def getStyleSection(df, togglevalue):
             # ),
             # html.Hr(),
 
-            html.H6('Select Method of your choice.'),
+            html.H6('Choose method.'),
             html.Div( 
                 className = 'div-user-controls',
                 children= [
@@ -110,7 +116,7 @@ def getStyleSection(df, togglevalue):
             ),
             html.Hr(),
 
-            html.H6('Select Data Sensitivity of your choice.'),
+            html.H6('Choose data sensivity type.'),
             html.Div( 
                 className = 'div-user-controls',
                 children= [
@@ -181,6 +187,7 @@ def getKPIAnzahlLostRecords(df_temp, titlename):
 
     fig = go.Figure(go.Indicator(
                                     mode = "number",
+                                    number = {"font": {"size": number_size}},
                                     value = summe,
                                     domain = {'x': [0, 1], 'y': [0, 1]}
                             )
@@ -188,11 +195,11 @@ def getKPIAnzahlLostRecords(df_temp, titlename):
 
     if len(titlename) > 1:
         
-        fig.update_layout(title = {'text' : "Summe der Lost Records für {} !".format(titlename)})
+        fig.update_layout(title = {'text' : "Sum of stolen data for {} !".format(titlename)}, title_x = 0.5, height = kpi_height)
 
     else:
 
-        fig.update_layout(title = {'text' : "Summe der Lost Records für " + str(titlename[0]) + "!"})
+        fig.update_layout(title = {'text' : "Sum of stolen data for " + str(titlename[0])}, title_x = 0.5, height = kpi_height)
 
     return fig
 
@@ -208,11 +215,11 @@ def getPieAnzahlLostRecords(df_temp, titlename):
 
     if len(titlename) > 1:
         
-        fig.update_layout(legend = dict(orientation = "h"), title_text = "Summe der Lost Records für {} !".format(titlename), title_x = 0.5)
+        fig.update_layout(legend = dict(orientation = "h"), title_text = "Stolen data distribution for {} !".format(titlename), title_x = 0.5, height = kpi_height)
 
     else:
 
-        fig.update_layout(legend = dict(orientation = "h"), title_text = 'Verteilung von ' + str(titlename[0]) + "!", title_x = 0.5)
+        fig.update_layout(legend = dict(orientation = "h"), title_text = 'Stolen data distribution for ' + str(titlename[0]), title_x = 0.5, height = kpi_height)
     
     return fig
 
@@ -223,15 +230,15 @@ def getPieAnzahlLostRecords(df_temp, titlename):
 ##############################################
 def getBarLostRecordsTime(df_temp, titlename):
 
-    fig = px.bar(df_temp, x = "records_lost", y = "year", color = 'organisation', text = df_temp.records_lost, orientation = 'h')
+    fig = px.bar(df_temp, x = "records_lost", y = "year", color = 'organisation', text = df_temp.records_lost, orientation = 'h', height = chart_height)
 
     if len(titlename) > 1:
         
-        fig.update_layout(title = {'text' : "Summe der Lost Records für {} !".format(titlename)})
+        fig.update_layout(title = {'text' : "Sum of stolen data for {} !".format(titlename)})
 
     else:
 
-        fig.update_layout(title = {'text' : "Summe der Lost Records für " + str(titlename[0]) + "!"})
+        fig.update_layout(title = {'text' : "Sum of stolen data for " + str(titlename[0]) + "!"})
 
     fig.update_traces(texttemplate='%{text:.2s}', textposition = 'outside', textfont_size = 12, textangle = 0, width = 1)
     fig.update_xaxes(title = None)
