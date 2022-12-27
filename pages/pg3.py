@@ -40,7 +40,7 @@ sidebar = html.Div(
             id = "my-toggle-switch-output"
         ),
 
-        html.H6('Fast API'),
+        html.H6('Fast API regression model'),
         html.Div( 
             className = 'div-user-controls',
             children= [
@@ -49,25 +49,22 @@ sidebar = html.Div(
                     children = [ 
 
                         html.P('Predict the count of breaches for specific year.', style = {'textAlign': 'justify'}),
-                        # html.P('Ausgewählte Zeitperiode in Tagen: ' + str(len(df))),
-                        html.Div(id = "zeitraum_id"),
-                        html.Div(id = "bundesland_id"),
-                        # html.Br(),
+                        html.H6('Enter year.', style = {'textAlign': 'justify'}),
                         dcc.Input(
                             id="input_number",
+                            className="list-group-item",
                             type="number",
                             value='2025',
                             placeholder="input type number",
                             style={'width': '100%', 'height': 25}
                         ),
+                        html.H6('Predicted count of breaches.', style = {'textAlign': 'justify', 'margin-top': 5}),
                         dcc.Input(
                             id='textarea',
+                            className="list-group-item",
                             value='',
                             style={'width': '100%', 'height': 25},
                         ),
-                        dbc.Button(id = 'API_Button', children = 'Calculate with API', style={'width': '100%'}),
-                        html.Hr(),
-                        html.Div(id = "API_Call")
                     ],
                 ),
             ]
@@ -232,14 +229,15 @@ def generateBarLostRecordsTime(start_year : int, end_year : int, organisation, m
 
 @callback(
     Output('textarea', 'value'),
-    Input('input_number', 'value'), prevent_initial_call = True)
+    Input('input_number', 'value'))
 def useApi(number: int):
     headers = {
         'accept': 'application/json',
         'content-type': 'application/x-www-form-urlencoded',
     }
     params = {
-        'number': number,
+        'year': number,
     }
     response = requests.post('http://0.0.0.0:8001/predict', params=params, headers=headers)
-    return response.text
+    data = response.json()
+    return data['noOfBreaches']
