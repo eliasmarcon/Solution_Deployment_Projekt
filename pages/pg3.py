@@ -143,15 +143,17 @@ def update_output(value):
 # filter method based on organisation
 @callback(
     Output('select-method-dependend', 'options'),
-    Input('select-organisation', 'value'))
-def getAuswahlMethod(selected_organization):
+    Input('select-organisation', 'value'),
+    Input('my-toggle-switch', 'on'))
+def getAuswahlMethod(selected_organization, toggle):
     
-    if type(selected_organization) == str:
-        
+    if selected_organization is None:
+        selected_organization = 'Twitter'
+    
+    if type(selected_organization) == str:       
         labels = df[df['organisation'] == selected_organization]['method'].unique()
 
     else:
-
         labels = df[df['organisation'].isin(selected_organization)]['method'].unique()
 
     return labels
@@ -160,24 +162,28 @@ def getAuswahlMethod(selected_organization):
 @callback(
     Output('select-data-sensitivity-dependend', 'options'),
     Input('select-organisation', 'value'),
-    Input('select-method-dependend', 'value'))
-def getAuswahlDataSensitivity(selected_organization, selected_method):
+    Input('select-method-dependend', 'value'),
+    Input('my-toggle-switch', 'on'))
+def getAuswahlDataSensitivity(selected_organization, selected_method, toggle):
 
-    if type(selected_organization) == str:
-        
+    # define fallback scenario
+    if selected_organization is None:
+        selected_organization = 'Twitter'
+
+    if selected_method is None:
+        selected_method = 'hacked'
+
+    if type(selected_organization) == str:       
         df2 = df[df['organisation'] == selected_organization]
-        labels = df2[df2['method'] == selected_method]['data_sensitivity_text'].unique()
-
-        return labels
 
     else:
-
         df2 = df[df['organisation'].isin(selected_organization)]
-        if selected_method is None:
-            labels = None
-        else:
-            labels = df2[df2['method'].isin(selected_method)]['data_sensitivity_text'].unique()
-        return labels
+    
+    if type(selected_method) == str:
+        labels = df2[df2['method'] == selected_method]['data_sensitivity_text'].unique()        
+    else:
+        labels = df2[df2['method'].isin(selected_method)]['data_sensitivity_text'].unique()
+    return labels
 
 ######################################################################
 #################### function plot section ###########################
