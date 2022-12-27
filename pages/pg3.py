@@ -8,28 +8,30 @@ from dash_bootstrap_templates import load_figure_template
 import requests
 import utilities, utilitiespg3
 
-# App Main
+# page settings
 dash.register_page(__name__, name = 'Organizations', external_stylesheets = [dbc.themes.LUX])
+
+# load bootstrap figure template
 load_figure_template("LUX")
 
-# Load Dataset
+# load dataset
 df = utilities.loadData()
 
 ######################################################################
-######################### Style Section ##############################
+######################### layout section #############################
 ######################################################################
 
-# Create Slidebar
+# define sidebar content
 sidebar = html.Div(
     [
+        # multi selection toggle
         html.H6('Enable multiple selection'),
         html.Div( 
             className = 'div-user-controls',
             children= [
                 html.Div( 
-                    className = 'div-for-sensitivity-picker',
                     children = [ 
-                        daq.BooleanSwitch(id = 'my-toggle-switch', on = False) #color="#9B51E0", label = 'My toggle switch', labelPosition='bottom'
+                        daq.BooleanSwitch(id = 'my-toggle-switch', on = False) 
                     ],
                 ),
             ]
@@ -42,22 +44,23 @@ sidebar = html.Div(
 
         html.H6('Fast API regression model'),
         html.Div( 
-            className = 'div-user-controls',
             children= [
                 html.Div( 
-                    className = 'div-for-date-picker',
                     children = [ 
 
-                        html.P('Predict the count of breaches for specific year.', style = {'textAlign': 'justify'}),
+                        # prediction model year input 
+                        html.P('Predict the count of breaches.', style = {'textAlign': 'justify'}),
                         html.H6('Enter year.', style = {'textAlign': 'justify'}),
                         dcc.Input(
                             id="input_number",
                             className="list-group-item",
                             type="number",
                             value='2025',
-                            placeholder="input type number",
+                            placeholder="input year",
                             style={'width': '100%', 'height': 25}
                         ),
+
+                        # prediction model output
                         html.H6('Predicted count of breaches.', style = {'textAlign': 'justify', 'margin-top': 5}),
                         dcc.Input(
                             id='textarea',
@@ -72,7 +75,7 @@ sidebar = html.Div(
     ]
 )
 
-# Create Main Content Area
+# define main content layout
 content = html.Div(
     [
         dbc.Row(
@@ -87,8 +90,9 @@ content = html.Div(
                         dcc.Graph(id = 'PieAnzahlLostRecords', figure = {})
                     ], width = 6
                 )
-            ]#, style = {"height": "10%"}
+            ]
         ),
+
         dbc.Row(
             [
                 dbc.Col(
@@ -101,7 +105,7 @@ content = html.Div(
     ]
 )
 
-# Define the app
+# define page layout
 layout = html.Div([
 
     dbc.Row([
@@ -113,18 +117,19 @@ layout = html.Div([
             ),
 
         dbc.Col(
-            [
-                content
-            ], width = 10
+                [
+                    content
+                ], width = 10
         )
     ])    
 ])
 
 
 ######################################################################
-#################### Dependencie Selection ###########################
+####################### callback section #############################
 ######################################################################
-# Callback for toggle switch button
+
+# toggle multi selection switch
 @callback(
     Output('my-toggle-switch-output', 'children'),
     Input('my-toggle-switch', 'on')
@@ -135,49 +140,50 @@ def update_output(value):
 
     return div
 
-# Auswahl für Method based on Organisation
+# filter method based on organisation
 @callback(
     Output('select-method-dependend', 'options'),
-    Input('select-organisation', 'value'), prevent_initial_call = True)
-def getAuswahlMethod(selected_country):
+    Input('select-organisation', 'value'))
+def getAuswahlMethod(selected_organization):
     
-    if type(selected_country) == str:
+    if type(selected_organization) == str:
         
-        labels = df[df['organisation'] == selected_country]['method'].unique()
+        labels = df[df['organisation'] == selected_organization]['method'].unique()
 
     else:
 
-        labels = df[df['organisation'].isin(selected_country)]['method'].unique()
+        labels = df[df['organisation'].isin(selected_organization)]['method'].unique()
 
     return labels
 
-# Auswahl für Data Senistivity based on Organisation und Method
+# filter data senistivity based on organization and method
 @callback(
     Output('select-data-sensitivity-dependend', 'options'),
     Input('select-organisation', 'value'),
-    Input('select-method-dependend', 'value'), prevent_initial_call = True)
-def getAuswahlDataSensitivity(selected_country, selected_method):
+    Input('select-method-dependend', 'value'))
+def getAuswahlDataSensitivity(selected_organization, selected_method):
 
-    if type(selected_country) == str:
+    if type(selected_organization) == str:
         
-        df2 = df[df['organisation'] == selected_country]
+        df2 = df[df['organisation'] == selected_organization]
         labels = df2[df2['method'] == selected_method]['data_sensitivity_text'].unique()
 
         return labels
 
     else:
 
-        df2 = df[df['organisation'].isin(selected_country)]
-        labels = df2[df2['method'].isin(selected_method)]['data_sensitivity_text'].unique()
-
+        df2 = df[df['organisation'].isin(selected_organization)]
+        if selected_method is None:
+            labels = None
+        else:
+            labels = df2[df2['method'].isin(selected_method)]['data_sensitivity_text'].unique()
         return labels
 
-
 ######################################################################
-#################### Function Plot Section ###########################
+#################### function plot section ###########################
 ######################################################################
 
-# KPI an Lost Records
+# KPI stolen data
 @callback( 
     Output('KPIAnzahlLostRecords', 'figure'),
     Input('select-year', 'value'),
@@ -186,14 +192,14 @@ def getAuswahlDataSensitivity(selected_country, selected_method):
     Input('select-method-dependend', 'value'),
     Input('select-data-sensitivity-dependend', 'value'),
     Input('my-toggle-switch', 'on'), prevent_initial_call = True)
-def generateKPIAnzahlLostRecords(start_year : int, end_year : int, organisation, method, data_sensitivity, togglbutton):
+def generateKPIAnzahlLostRecords(start_year : int, end_year : int, organisation, method, data_sensitivity, togglebutton):
 
-    df_temp = utilitiespg3.getMultipleFilters(df, start_year, end_year, organisation, method, data_sensitivity, togglbutton)
+    df_temp = utilitiespg3.getMultipleFilters(df, start_year, end_year, organisation, method, data_sensitivity, togglebutton)
     fig = utilitiespg3.getKPIAnzahlLostRecords(df_temp, df_temp.organisation.unique())
 
     return fig
 
-# Pie an Lost Records
+# pie stolen data
 @callback( 
     Output('PieAnzahlLostRecords', 'figure'),
     Input('select-year', 'value'),
@@ -202,15 +208,15 @@ def generateKPIAnzahlLostRecords(start_year : int, end_year : int, organisation,
     Input('select-method-dependend', 'value'),
     Input('select-data-sensitivity-dependend', 'value'),
     Input('my-toggle-switch', 'on'), prevent_initial_call = True)
-def generatePieAnzahlLostRecords(start_year : int, end_year : int, organisation, method, data_sensitivity, togglbutton):
+def generatePieAnzahlLostRecords(start_year : int, end_year : int, organisation, method, data_sensitivity, togglebutton):
 
-    df_temp = utilitiespg3.getMultipleFilters(df, start_year, end_year, organisation, method, data_sensitivity, togglbutton)
+    df_temp = utilitiespg3.getMultipleFilters(df, start_year, end_year, organisation, method, data_sensitivity, togglebutton)
     fig = utilitiespg3.getPieAnzahlLostRecords(df_temp, df_temp.organisation.unique())
 
     return fig
 
 
-# Bar an Lost Records over time
+# bar chart stolen data over time
 @callback( 
     Output('BarLostRecordsTime', 'figure'),
     Input('select-year', 'value'),
@@ -219,14 +225,15 @@ def generatePieAnzahlLostRecords(start_year : int, end_year : int, organisation,
     Input('select-method-dependend', 'value'),
     Input('select-data-sensitivity-dependend', 'value'),
     Input('my-toggle-switch', 'on'), prevent_initial_call = True)
-def generateBarLostRecordsTime(start_year : int, end_year : int, organisation, method, data_sensitivity, togglbutton):
+def generateBarLostRecordsTime(start_year : int, end_year : int, organisation, method, data_sensitivity, togglebutton):
 
-    df_temp = utilitiespg3.getMultipleFilters(df, start_year, end_year, organisation, method, data_sensitivity, togglbutton)
+    df_temp = utilitiespg3.getMultipleFilters(df, start_year, end_year, organisation, method, data_sensitivity, togglebutton)
     fig = utilitiespg3.getBarLostRecordsTime(df_temp, df_temp.organisation.unique())
 
     return fig
 
 
+# fast api call 
 @callback(
     Output('textarea', 'value'),
     Input('input_number', 'value'))

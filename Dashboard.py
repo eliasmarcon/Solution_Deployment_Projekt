@@ -3,15 +3,17 @@ import dash_bootstrap_components as dbc
 from dash_bootstrap_templates import load_figure_template
 from dash import html
 
-# App Main
+# app Main
 app = dash.Dash(__name__, use_pages = True, external_stylesheets = [dbc.themes.LUX],
                 suppress_callback_exceptions = True)
 
+# load bootstrap template
 load_figure_template("LUX")
 
 # enable assets/customs.css
 app.css.config.serve_locally = True
 
+# define navigation bar
 sidebar = dbc.Nav(
                     [
                         dbc.NavLink(
@@ -28,15 +30,17 @@ sidebar = dbc.Nav(
                     className = "bg-light",
 )
 
+# define layout
 app.layout = dbc.Container(
     [
+        # define dashboard header
         dbc.Row([
             dbc.Col(
                 html.Div(
                             className='div-for-text',
                             children=[
                                 html.H1('Worlds biggest Data Breaches & Hacks', style={'fontSize': 35, 'textAlign' : 'center'}), 
-                                html.P('A basic Dashboard with Dash and Plotly.', style={'fontSize': 20, 'textAlign' : 'center'})
+                                html.P('A basic dashboard with Dash and Plotly.', style={'fontSize': 20, 'textAlign' : 'center'})
                             ]
                         )
             )
@@ -44,6 +48,7 @@ app.layout = dbc.Container(
 
         html.Hr(),
 
+        # define content layout
         dbc.Row(
             [
                 dbc.Col(

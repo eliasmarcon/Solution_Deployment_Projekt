@@ -7,21 +7,20 @@ from dash import html
 from dash import dcc, callback
 from dash.dependencies import Input, Output
 
-
-# App Main
+# page settings
 dash.register_page(__name__, name = 'Sectors')
+
+# load bootstrap figure template
 load_figure_template("LUX")
 
-
-# Load Dataset
+# load dataset
 df = utilities.loadData()
 
-
 ######################################################################
-######################### Style Section ##############################
+######################### layout section #############################
 ######################################################################
 
-# Create Slidebar
+# define sidebar content
 sidebar = html.Div(
     [
         html.H6('Choose period.'),
@@ -72,7 +71,7 @@ sidebar = html.Div(
     ]
 )
 
-# Create Main Content Area
+# define main content area
 content = html.Div(
     [
         dbc.Row(
@@ -124,21 +123,10 @@ content = html.Div(
                 
             ]
         ),
-
     ]
-    # children = [
-    #                 html.Div(
-    #                     children = [dcc.Graph(id = 'KPI_Fälle_Zeitperiode')],
-                        
-    #                 ),
-    #                 html.Div(
-    #                     children = [dcc.Graph(id = 'KPI_Lost_records')],
-    #                     style = {'width': '50%', 'display': 'inline-block'}
-    #                 )
-    #             ]
 )
 
-# Define the app
+# define page layout
 layout = html.Div([
 
     dbc.Row([
@@ -157,12 +145,11 @@ layout = html.Div([
     ])    
 ])
 
-
 ######################################################################
-#################### Function Plot Section ###########################
+#################### function plot section ###########################
 ######################################################################
 
-# KPI Anzahl unterschiedlicher Organisationen
+# KPI unique organizations
 @callback( 
     Output('KPI_Datensetgroeße_organisationen', 'figure'),
     Input('select-year', 'value'),
@@ -175,8 +162,7 @@ def generateKPIDatensetgroeßeOrganisation(start_year : int, end_year : int, sec
 
     return fig
 
-
-# KPI Anzahl unterschiedlicher Methoden
+# KPI unique methods
 @callback( 
     Output('KPI_Datensetgroeße_methoden', 'figure'),
     Input('select-year', 'value'),
@@ -189,8 +175,7 @@ def generateKPIDatensetgroeßeMethod(start_year : int, end_year : int, sector):
 
     return fig
 
-
-# KPI Anzahl unterschiedlicher Data Senistivities
+# KPI unique data sensitivities
 @callback( 
     Output('KPI_Datensetgroeße_data_sensi', 'figure'),
     Input('select-year', 'value'),
@@ -203,8 +188,7 @@ def generateKPIDatensetgroeßeDataSensitivity(start_year : int, end_year : int, 
 
     return fig
 
-
-# KPI Fälle Zeitperiode / Jahr
+# KPI count of breaches in period
 @callback( 
     Output('KPI_Fälle_Zeitperiode', 'figure'),
     Input('select-year', 'value'),
@@ -217,7 +201,7 @@ def generateKPIVorfälle(start_year : int, end_year : int, sector):
 
     return fig
 
-# KPI Lost records Zeitperiode / Jahr
+# KPI stolen data in period
 @callback( 
     Output('KPI_Lost_records', 'figure'),
     Input('select-year', 'value'),
@@ -230,22 +214,7 @@ def generateKPIVorfälle(start_year : int, end_year : int, sector):
 
     return fig
 
-
-# Barchart Fälle pro Jahr
-@callback( 
-    Output('Barchart_pro_Jahr', 'figure'),
-    Input('select-year', 'value'),
-    Input('select-year2', 'value'),
-    Input('select-sector', 'value'))
-def generateBarchartProJahr(start_year : int, end_year : int, sector):
-
-    df_temp = utilitiespg2.getMultipleSectors(df, sector)
-    fig = utilitiespg2.getBarchartProJahr(df_temp, start_year, end_year)
-
-    return fig
-
-
-# Barchart Fälle pro Jahr und Sektor
+# Barchart count of breaches by year and sector
 @callback( 
     Output('Barchart_pro_Jahr_Sektor', 'figure'),
     Input('select-year', 'value'),
@@ -258,20 +227,7 @@ def generateBarchartProJahrSektor(start_year : int, end_year : int, sector):
 
     return fig
 
-
-# Barchart Unternehmen mit meisten Leaks
-@callback( 
-    Output('Barchart_meisten_Leaks', 'figure'),
-    Input('select-year', 'value'),
-    Input('select-year2', 'value'))
-def generateBarchartLeaksUnternehmen(start_year : int, end_year : int):
-
-    fig = utilitiespg2.getBarchartLeaksUnternehmen(df, start_year, end_year)
-
-    return fig
-
-
-# Piechart Verteilung Methoden 
+# Piechart method distribution
 @callback(
     Output('Pie_Methoden', 'figure'),
     Input('select-year', 'value'),
@@ -284,8 +240,7 @@ def generatePieMethoden(start_year : int, end_year : int, sector):
     
     return fig
 
-
-# Piechart Verteilung Data_Sensitivity 
+# Piechart data sensitivity distribution
 @callback(
     Output('Pie_Data_Sensitivity', 'figure'),
     Input('select-year', 'value'),
