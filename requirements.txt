@@ -9,3 +9,4 @@ requests
 dash_bootstrap_components
 scikit-learn
 dash-daq
+dash_bootstrap_templates
