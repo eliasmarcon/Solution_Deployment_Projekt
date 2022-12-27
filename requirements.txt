@@ -6,7 +6,7 @@ dash
 plotly
 pandas
 requests
-dash_bootstrap_components
+dash-bootstrap-components
 scikit-learn
 dash-daq
 dash-bootstrap-templates
