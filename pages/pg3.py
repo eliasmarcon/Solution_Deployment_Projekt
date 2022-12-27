@@ -245,6 +245,6 @@ def useApi(number: int):
     params = {
         'year': number,
     }
-    response = requests.post('http://0.0.0.0:8001/predict', params=params, headers=headers)
+    response = requests.post('http://localhost:8000/predict', params=params, headers=headers)
     data = response.json()
     return data['noOfBreaches']

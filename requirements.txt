@@ -1,13 +1,11 @@
 uvicorn
 fastapi
 pydantic
-bs4
 dash
 plotly
 pandas
 requests
 dash-bootstrap-components
+dash-bootstrap-templates
 scikit-learn
 dash-daq
-dash-bootstrap-templates
-multiprocessing
