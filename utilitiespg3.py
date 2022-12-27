@@ -20,7 +20,7 @@ def getStyleSection(df, togglevalue):
                         children=[ 
                             dcc.Dropdown(
                                 id = 'select-organisation',
-                                options = utilities.generate_options(df, 'organisation'), value = 'Facebook', className = 'postselector', multi = togglevalue 
+                                options = utilities.generate_options(df, 'organisation'), value = 'Twitter', className = 'postselector', multi = togglevalue 
                             )
                         ],
                     ),
@@ -204,6 +204,6 @@ def getBarLostRecordsTime(df_temp, titlename):
 
     fig.update_traces(texttemplate='%{text:.2s}', textposition = 'outside', textfont_size = 12, textangle = 0, width = 1)
     fig.update_xaxes(title = None)
-    fig.update_yaxes(title = None)
+    fig.update_yaxes(title = None, type='category')
 
     return fig
