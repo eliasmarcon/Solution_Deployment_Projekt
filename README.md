@@ -26,6 +26,8 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
+    <li><a href="#dashboard-github-action-and-azure">Dashboard Github Action and Azure</a></li>
+    <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
@@ -42,9 +44,11 @@
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
+  <li><a href="#computer-vision-tensor-serve-and-dash">Computer Vision Tensor Serve and Dash</a></li>
+  </ol>
 </details>
 
-
+# Dashboard Github Action and Azure
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -125,3 +129,7 @@ There is no installation needed to run the web application as it is already depl
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+# Computer Vision Tensor Serve and Dash
+
+[https://github.com/eliasmarcon/Solution_Deployment_Projekt_Computer_Vision](https://github.com/eliasmarcon/Solution_Deployment_Projekt_Computer_Vision)
